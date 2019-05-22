@@ -8,3 +8,7 @@ export const getPokemons = (url = '') => (dispatch) => {
       payload: data,
     }));
 };
+
+export const updateSearch = value => (dispatch) => {
+  dispatch({ type: actionType.UPDATE_SEARCH, payload: value });
+};

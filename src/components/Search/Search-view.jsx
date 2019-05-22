@@ -1,9 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Row, Col, Form, Input, InputGroup, InputGroupAddon, Button,
 } from 'reactstrap';
 
-export default function Search() {
+export default function Search(props) {
+  const { searchValue, handleChange } = props;
   return (
     <React.Fragment>
       <Row className="mt-5">
@@ -17,7 +19,7 @@ export default function Search() {
         <Col className="text-center">
           <Form>
             <InputGroup>
-              <Input type="text" placeholder="Search" />
+              <Input type="text" placeholder="Search" value={searchValue} onChange={handleChange} />
               <InputGroupAddon addonType="append">
                 <Button>Search</Button>
               </InputGroupAddon>
@@ -28,3 +30,7 @@ export default function Search() {
     </React.Fragment>
   );
 }
+Search.propTypes = {
+  searchValue: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
