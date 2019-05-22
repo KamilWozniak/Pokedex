@@ -16,17 +16,15 @@ class PokemonListRedux extends Component {
 
   componentDidMount() {
     const { getPokemons: fetchPokemons } = this.props;
-    //         ^^^^^^^ eslint complain about shadowing
     fetchPokemons('/?_page=1');
   }
 
   render() {
     const { pokemons } = this.props;
-    console.log(pokemons);
     return (
-      <div>
-        <PokemonList />
-      </div>
+      <React.Fragment>
+        <PokemonList pokemons={pokemons} />
+      </React.Fragment>
     );
   }
 }

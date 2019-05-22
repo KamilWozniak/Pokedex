@@ -8,5 +8,3 @@ export const getPokemons = (url = '') => (dispatch) => {
       payload: data,
     }));
 };
-
-export const z = 2;
