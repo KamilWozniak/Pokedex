@@ -1,3 +1,3 @@
-import Select from './Select-view';
+import Select from './Select-redux';
 
 export default Select;

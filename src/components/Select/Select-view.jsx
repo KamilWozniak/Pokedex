@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Row, Col, FormGroup, Label, Input,
 } from 'reactstrap';
 import './Select-view.scss';
 
-export default function Select() {
+export default function Select(props) {
+  const { handleChange } = props;
   return (
     <Row className="mt-5">
       <Col xs="5" className="d-flex ml-auto">
@@ -18,6 +20,7 @@ export default function Select() {
               bsSize="sm"
               id="select"
               className="select-max-width cursor-pointer"
+              onChange={handleChange}
             >
               <option value="10">10</option>
               <option value="20">20</option>
@@ -29,3 +32,7 @@ export default function Select() {
     </Row>
   );
 }
+
+Select.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+};

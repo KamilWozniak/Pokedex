@@ -18,3 +18,7 @@ export const onSearchSubmit = searchValue => (dispatch) => {
     .then(response => response.json())
     .then(data => dispatch({ type: actionType.SEARCH, payload: data }));
 };
+
+export const changeItemsNumber = number => (dispatch) => {
+  dispatch({ type: actionType.SET_ITEMS_PER_PAGE, payload: number });
+};
