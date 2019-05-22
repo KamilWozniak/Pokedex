@@ -5,7 +5,7 @@ import {
 } from 'reactstrap';
 
 export default function Search(props) {
-  const { searchValue, handleChange } = props;
+  const { searchValue, handleChange, handleSubmit } = props;
   return (
     <React.Fragment>
       <Row className="mt-5">
@@ -17,7 +17,7 @@ export default function Search(props) {
       </Row>
       <Row>
         <Col className="text-center">
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <InputGroup>
               <Input type="text" placeholder="Search" value={searchValue} onChange={handleChange} />
               <InputGroupAddon addonType="append">
@@ -33,4 +33,5 @@ export default function Search(props) {
 Search.propTypes = {
   searchValue: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };

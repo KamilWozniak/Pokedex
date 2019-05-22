@@ -12,3 +12,9 @@ export const getPokemons = (url = '') => (dispatch) => {
 export const updateSearch = value => (dispatch) => {
   dispatch({ type: actionType.UPDATE_SEARCH, payload: value });
 };
+
+export const onSearchSubmit = searchValue => (dispatch) => {
+  fetch(`http://localhost:4000/pokemon/?q=${searchValue}`)
+    .then(response => response.json())
+    .then(data => dispatch({ type: actionType.SEARCH, payload: data }));
+};

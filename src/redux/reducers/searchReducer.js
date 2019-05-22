@@ -1,4 +1,4 @@
-import { UPDATE_SEARCH } from '../actions/types';
+import { UPDATE_SEARCH, SEARCH } from '../actions/types';
 
 const initialState = {
   searchValue: '',
@@ -10,6 +10,12 @@ const searchReducer = (state = initialState, action) => {
       return {
         ...state,
         searchValue: action.payload,
+      };
+    }
+    case SEARCH: {
+      return {
+        ...state,
+        searchValue: '',
       };
     }
     default:
