@@ -7,16 +7,13 @@ import { getPokemons } from '../../redux/actions/actions';
 class PokemonListRedux extends Component {
   static propTypes = {
     getPokemons: PropTypes.func.isRequired,
-    pokemons: PropTypes.instanceOf(Array),
-  };
-
-  static defaultProps = {
-    pokemons: [],
+    pokemons: PropTypes.instanceOf(Array).isRequired,
+    itemsOnPage: PropTypes.number.isRequired,
   };
 
   componentDidMount() {
-    const { getPokemons: fetchPokemons } = this.props;
-    fetchPokemons('/?_page=1');
+    const { getPokemons: fetchPokemons, itemsOnPage } = this.props;
+    fetchPokemons(`/?_page=1&_limit=${itemsOnPage}`);
   }
 
   render() {
@@ -31,6 +28,7 @@ class PokemonListRedux extends Component {
 
 const mapStateToProps = state => ({
   pokemons: state.pokemonReducer.pokemons,
+  itemsOnPage: state.selectReducer.itemsPerPage,
 });
 
 export default connect(

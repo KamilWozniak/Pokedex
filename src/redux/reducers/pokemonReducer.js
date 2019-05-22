@@ -1,14 +1,12 @@
-import { GET_POKEMONS, SEARCH } from '../actions/types';
+import { GET_POKEMONS } from '../actions/types';
 
-const pokemonReducer = (state = {}, action) => {
+const initialState = {
+  pokemons: [],
+};
+
+const pokemonReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_POKEMONS: {
-      return {
-        ...state,
-        pokemons: action.payload,
-      };
-    }
-    case SEARCH: {
       return {
         ...state,
         pokemons: action.payload,

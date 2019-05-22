@@ -2,6 +2,7 @@ import { UPDATE_SEARCH, SEARCH } from '../actions/types';
 
 const initialState = {
   searchValue: '',
+  lastSearched: '',
 };
 
 const searchReducer = (state = initialState, action) => {
@@ -16,6 +17,7 @@ const searchReducer = (state = initialState, action) => {
       return {
         ...state,
         searchValue: '',
+        lastSearched: action.payload,
       };
     }
     default:
