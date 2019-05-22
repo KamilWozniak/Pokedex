@@ -4,6 +4,7 @@ import { Container } from 'reactstrap';
 import Header from '../Header';
 import Search from '../Search';
 import Select from '../Select';
+import PokemonList from '../PokemonList';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Header />
       <Search />
       <Select />
+      <PokemonList />
     </Container>
   );
 }
