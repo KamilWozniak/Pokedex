@@ -1,12 +1,17 @@
+import axios from 'axios';
 import * as actionType from './types';
 
 export const getPokemons = (url = '') => (dispatch) => {
-  fetch(`http://localhost:4000/pokemon${url}`)
-    .then(response => response.json())
-    .then(data => dispatch({
+  axios.get(`http://localhost:4000/pokemon${url}`).then((response) => {
+    // console.log(response.headers.link);
+    // console.log(response.headers['x-total-count']);
+    // console.log(response.data);
+    dispatch({
       type: actionType.GET_POKEMONS,
-      payload: data,
-    }));
+      payload: response.data,
+      total: response.headers['x-total-count'],
+    });
+  });
 };
 
 export const updateSearch = value => (dispatch) => {

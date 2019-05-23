@@ -2,6 +2,7 @@ import { GET_POKEMONS } from '../actions/types';
 
 const initialState = {
   pokemons: [],
+  total: 0,
 };
 
 const pokemonReducer = (state = initialState, action) => {
@@ -10,6 +11,7 @@ const pokemonReducer = (state = initialState, action) => {
       return {
         ...state,
         pokemons: action.payload,
+        total: Number(action.total),
       };
     }
     default:
