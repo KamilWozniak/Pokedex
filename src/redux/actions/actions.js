@@ -35,3 +35,9 @@ export const getPokemonToModal = id => (dispatch) => {
     .then(response => response.json())
     .then(data => dispatch({ type: actionType.GET_MODAL_POKEMON, payload: data }));
 };
+
+export const onPageChange = (pageNumber = 1, itemsPerPage = 10, query = '') => (dispatch) => {
+  fetch(`http://localhost:4000/pokemon/?_page=${pageNumber}&_limit=${itemsPerPage}&q=${query}`)
+    .then(response => response.json())
+    .then(data => dispatch({ type: actionType.CHANGE_PAGE, pokemons: data, currPage: pageNumber }));
+};

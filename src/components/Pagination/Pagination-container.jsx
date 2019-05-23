@@ -5,45 +5,71 @@ import uuid from 'uuid';
 import PaginationView from './Pagination-view';
 
 export default function PaginationContainer(props) {
-  const { total, itemsOnPage } = props;
+  const {
+    total, itemsOnPage, onPageChange, lastSearch, currentPage,
+  } = props;
   const numberOfPages = Math.ceil(total / itemsOnPage);
+
+  const handlePageChange = (pageNumber, itemsPerPage, query) => {
+    onPageChange(pageNumber, itemsPerPage, query);
+  };
 
   const handlePages = (pages) => {
     if (pages <= 1) {
       return null;
     }
-    if (pages === 2) {
-      return (
-        <Pagination>
-          <PaginationItem>
-            <PaginationLink>1</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink>2</PaginationLink>
-          </PaginationItem>
-        </Pagination>
-      );
-    }
     return (
       <Pagination>
         <PaginationItem>
-          <PaginationLink first />
+          <PaginationLink first onClick={() => handlePageChange(1, itemsOnPage, lastSearch)} />
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink previous />
+          <PaginationLink
+            previous
+            onClick={() => handlePageChange(currentPage - 1, itemsOnPage, lastSearch)}
+          />
         </PaginationItem>
         {Array(pages)
           .fill(1)
-          .map((item, id) => (
-            <PaginationItem key={uuid.v4()}>
-              <PaginationLink key={uuid.v4()}>{id + 1}</PaginationLink>
-            </PaginationItem>
-          ))}
+          .map((item, id) => {
+            if (id + 1 === currentPage) {
+              return (
+                <React.Fragment key={uuid.v4()}>
+                  <PaginationItem active key={uuid.v4()}>
+                    <PaginationLink
+                      onClick={() => handlePageChange(id + 1, itemsOnPage, lastSearch)}
+                      key={uuid.v4()}
+                    >
+                      {id + 1}
+                    </PaginationLink>
+                  </PaginationItem>
+                </React.Fragment>
+              );
+            }
+            return (
+              <React.Fragment key={uuid.v4()}>
+                <PaginationItem key={uuid.v4()}>
+                  <PaginationLink
+                    onClick={() => handlePageChange(id + 1, itemsOnPage, lastSearch)}
+                    key={uuid.v4()}
+                  >
+                    {id + 1}
+                  </PaginationLink>
+                </PaginationItem>
+              </React.Fragment>
+            );
+          })}
         <PaginationItem>
-          <PaginationLink next />
+          <PaginationLink
+            next
+            onClick={() => handlePageChange(currentPage + 1, itemsOnPage, lastSearch)}
+          />
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink last />
+          <PaginationLink
+            last
+            onClick={() => handlePageChange(numberOfPages, itemsOnPage, lastSearch)}
+          />
         </PaginationItem>
       </Pagination>
     );
@@ -59,4 +85,7 @@ export default function PaginationContainer(props) {
 PaginationContainer.propTypes = {
   total: PropTypes.number.isRequired,
   itemsOnPage: PropTypes.number.isRequired,
+  onPageChange: PropTypes.func.isRequired,
+  lastSearch: PropTypes.string.isRequired,
+  currentPage: PropTypes.number.isRequired,
 };

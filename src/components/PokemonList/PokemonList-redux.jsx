@@ -15,8 +15,7 @@ class PokemonListRedux extends Component {
 
   componentDidMount() {
     const { getPokemons: fetchPokemons, itemsOnPage } = this.props;
-    fetchPokemons(`/?_page=4&_limit=${itemsOnPage}`);
-    // fetchPokemons(`/?_start=0&_limit=${itemsOnPage}`);
+    fetchPokemons(`/?_page=1&_limit=${itemsOnPage}`);
   }
 
   render() {
