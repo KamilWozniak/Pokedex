@@ -5,13 +5,13 @@ import Modal from './Modal-container';
 import { toggleModal } from '../../redux/actions/actions';
 
 function ModalRedux(props) {
-  const { toggleModalState, pokemonId, toggleModal: toggleModalAction } = props;
+  const { toggleModalState, toggleModal: toggleModalAction, pokemonData } = props;
   return (
     <React.Fragment>
       <Modal
         toggleModalState={toggleModalState}
-        id={pokemonId}
         toggleModalAction={toggleModalAction}
+        pokemonData={pokemonData}
       />
     </React.Fragment>
   );
@@ -19,7 +19,7 @@ function ModalRedux(props) {
 
 const mapStateToProps = state => ({
   toggleModalState: state.modalReducer.toggleModal,
-  pokemonId: state.modalReducer.id,
+  pokemonData: state.modalReducer.pokemonInModal,
 });
 
 export default connect(
@@ -30,5 +30,5 @@ export default connect(
 ModalRedux.propTypes = {
   toggleModalState: PropTypes.bool.isRequired,
   toggleModal: PropTypes.func.isRequired,
-  pokemonId: PropTypes.number.isRequired,
+  pokemonData: PropTypes.instanceOf(Object).isRequired,
 };

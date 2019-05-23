@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import PokemonList from './PokemonList-container';
-import { getPokemons, toggleModal } from '../../redux/actions/actions';
+import { getPokemons, toggleModal, getPokemonToModal } from '../../redux/actions/actions';
 
 class PokemonListRedux extends Component {
   static propTypes = {
@@ -10,6 +10,7 @@ class PokemonListRedux extends Component {
     toggleModal: PropTypes.func.isRequired,
     pokemons: PropTypes.instanceOf(Array).isRequired,
     itemsOnPage: PropTypes.number.isRequired,
+    getPokemonToModal: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
@@ -18,10 +19,18 @@ class PokemonListRedux extends Component {
   }
 
   render() {
-    const { pokemons, toggleModal: handleModal } = this.props;
+    const {
+      pokemons,
+      toggleModal: handleModal,
+      getPokemonToModal: fetchPokemonToModal,
+    } = this.props;
     return (
       <React.Fragment>
-        <PokemonList pokemons={pokemons} toggleModal={handleModal} />
+        <PokemonList
+          pokemons={pokemons}
+          toggleModal={handleModal}
+          getPokemonToModal={fetchPokemonToModal}
+        />
       </React.Fragment>
     );
   }
@@ -34,5 +43,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getPokemons, toggleModal },
+  { getPokemons, toggleModal, getPokemonToModal },
 )(PokemonListRedux);

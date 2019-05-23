@@ -3,3 +3,4 @@ export const UPDATE_SEARCH = 'UPDATE_SEARCH';
 export const SEARCH = 'SEARCH';
 export const SET_ITEMS_PER_PAGE = 'SET_ITEMS_PER_PAGE';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+export const GET_MODAL_POKEMON = 'GET_MODAL_POKEMON';

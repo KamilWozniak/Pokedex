@@ -1,8 +1,13 @@
-import { TOGGLE_MODAL } from '../actions/types';
+import { TOGGLE_MODAL, GET_MODAL_POKEMON } from '../actions/types';
 
 const initialState = {
   toggleModal: false,
-  id: 0,
+  pokemonInModal: {
+    type: [],
+    multipliers: [],
+    weaknesses: [],
+    next_evolution: [],
+  },
 };
 
 const modalReducer = (state = initialState, action) => {
@@ -11,7 +16,12 @@ const modalReducer = (state = initialState, action) => {
       return {
         ...state,
         toggleModal: action.modalState,
-        id: action.id,
+      };
+    }
+    case GET_MODAL_POKEMON: {
+      return {
+        ...state,
+        pokemonInModal: action.payload,
       };
     }
     default:

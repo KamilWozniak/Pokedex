@@ -6,10 +6,10 @@ import {
 } from 'reactstrap';
 
 export default function PokemonCard(props) {
-  const { pokemonInfo, toggleModal } = props;
+  const { pokemonInfo, handleClick } = props;
   return (
     <Col xs="12" sm="6" lg="3" className="my-2">
-      <Card className="p-2 cursor-pointer" onClick={() => toggleModal(true, pokemonInfo.id)}>
+      <Card className="p-2 cursor-pointer" onClick={() => handleClick(pokemonInfo.id)}>
         <CardImg top src={pokemonInfo.img} alt="Pokemon image" />
         <CardBody>
           <CardTitle className="text-center">
@@ -30,5 +30,5 @@ export default function PokemonCard(props) {
 
 PokemonCard.propTypes = {
   pokemonInfo: PropTypes.PropTypes.instanceOf(Object).isRequired,
-  toggleModal: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
