@@ -20,3 +20,7 @@ export const onSearchSubmit = value => (dispatch) => {
 export const changeItemsNumber = number => (dispatch) => {
   dispatch({ type: actionType.SET_ITEMS_PER_PAGE, payload: Number(number) });
 };
+
+export const toggleModal = (value, id) => (dispatch) => {
+  dispatch({ type: actionType.TOGGLE_MODAL, modalState: value, id });
+};

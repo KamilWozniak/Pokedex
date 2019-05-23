@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import PokemonList from './PokemonList-container';
-import { getPokemons } from '../../redux/actions/actions';
+import { getPokemons, toggleModal } from '../../redux/actions/actions';
 
 class PokemonListRedux extends Component {
   static propTypes = {
     getPokemons: PropTypes.func.isRequired,
+    toggleModal: PropTypes.func.isRequired,
     pokemons: PropTypes.instanceOf(Array).isRequired,
     itemsOnPage: PropTypes.number.isRequired,
   };
@@ -17,10 +18,10 @@ class PokemonListRedux extends Component {
   }
 
   render() {
-    const { pokemons } = this.props;
+    const { pokemons, toggleModal: handleModal } = this.props;
     return (
       <React.Fragment>
-        <PokemonList pokemons={pokemons} />
+        <PokemonList pokemons={pokemons} toggleModal={handleModal} />
       </React.Fragment>
     );
   }
@@ -33,5 +34,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getPokemons },
+  { getPokemons, toggleModal },
 )(PokemonListRedux);

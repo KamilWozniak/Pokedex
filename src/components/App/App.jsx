@@ -5,6 +5,8 @@ import Header from '../Header';
 import Search from '../Search';
 import Select from '../Select';
 import PokemonList from '../PokemonList';
+import Pagination from '../Pagination';
+import Modal from '../Modal';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Search />
       <Select />
       <PokemonList />
+      <Pagination />
+      <Modal />
     </Container>
   );
 }
