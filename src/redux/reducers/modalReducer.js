@@ -4,6 +4,8 @@ import {
   CHANGE_PREV,
   CHANGE_NEXT,
   FILTER_POKEMON,
+  LOADING_MODAL_OFF,
+  LOADING_MODAL_ON,
 } from '../actions/types';
 
 const initialState = {
@@ -16,6 +18,7 @@ const initialState = {
   },
   prevEvo: false,
   nextEvo: false,
+  loadingModal: false,
 };
 
 const modalReducer = (state = initialState, action) => {
@@ -48,6 +51,18 @@ const modalReducer = (state = initialState, action) => {
       return {
         ...state,
         pokemonInModal: action.payload,
+      };
+    }
+    case LOADING_MODAL_ON: {
+      return {
+        ...state,
+        loadingModal: true,
+      };
+    }
+    case LOADING_MODAL_OFF: {
+      return {
+        ...state,
+        loadingModal: false,
       };
     }
     default:

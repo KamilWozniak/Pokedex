@@ -2,12 +2,14 @@ import axios from 'axios';
 import * as actionType from './types';
 
 export const getPokemons = (url = '') => (dispatch) => {
+  dispatch({ type: actionType.LOADING_ON });
   axios.get(`http://localhost:4000/pokemon${url}`).then((response) => {
     dispatch({
       type: actionType.GET_POKEMONS,
       payload: response.data,
       total: response.headers['x-total-count'],
     });
+    dispatch({ type: actionType.LOADING_OFF });
   });
 };
 
@@ -28,15 +30,23 @@ export const toggleModal = value => (dispatch) => {
 };
 
 export const getPokemonToModal = id => (dispatch) => {
+  dispatch({ type: actionType.LOADING_MODAL_ON });
   fetch(`http://localhost:4000/pokemon/${id}`)
     .then(response => response.json())
-    .then(data => dispatch({ type: actionType.GET_MODAL_POKEMON, payload: data }));
+    .then((data) => {
+      dispatch({ type: actionType.GET_MODAL_POKEMON, payload: data });
+      dispatch({ type: actionType.LOADING_MODAL_OFF });
+    });
 };
 
 export const onPageChange = (pageNumber = 1, itemsPerPage = 10, query = '') => (dispatch) => {
+  dispatch({ type: actionType.LOADING_ON });
   fetch(`http://localhost:4000/pokemon/?_page=${pageNumber}&_limit=${itemsPerPage}&q=${query}`)
     .then(response => response.json())
-    .then(data => dispatch({ type: actionType.CHANGE_PAGE, pokemons: data, currPage: pageNumber }));
+    .then((data) => {
+      dispatch({ type: actionType.CHANGE_PAGE, pokemons: data, currPage: pageNumber });
+      dispatch({ type: actionType.LOADING_OFF });
+    });
 };
 
 export const onPrevChange = val => (dispatch) => {
@@ -48,7 +58,11 @@ export const onNextChange = val => (dispatch) => {
 };
 
 export const filterPokemon = value => (dispatch) => {
+  dispatch({ type: actionType.LOADING_MODAL_ON });
   fetch(`http://localhost:4000/pokemon/?num=${value}`)
     .then(response => response.json())
-    .then(data => dispatch({ type: actionType.FILTER_POKEMON, payload: data[0] }));
+    .then((data) => {
+      dispatch({ type: actionType.FILTER_POKEMON, payload: data[0] });
+      dispatch({ type: actionType.LOADING_MODAL_OFF });
+    });
 };

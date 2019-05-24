@@ -8,3 +8,7 @@ export const CHANGE_PAGE = 'CHANGE_PAGE';
 export const CHANGE_PREV = 'CHANGE_PREV';
 export const CHANGE_NEXT = 'CHANGE_NEXT';
 export const FILTER_POKEMON = 'FILTER_POKEMON';
+export const LOADING_ON = 'LOADING_ON';
+export const LOADING_OFF = 'LOADING_OFF';
+export const LOADING_MODAL_ON = 'LOADING_MODAL_ON';
+export const LOADING_MODAL_OFF = 'LOADING_MODAL_OFF';

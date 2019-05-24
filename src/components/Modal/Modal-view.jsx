@@ -18,7 +18,17 @@ export default function PokemonModal(props) {
     nextState,
     handleClickNext,
     handleClickPrev,
+    loading,
   } = props;
+  if (loading) {
+    return (
+      <React.Fragment>
+        <Modal isOpen={toggleModalState}>
+          <ModalHeader toggle={closeModal}>LOADING</ModalHeader>
+        </Modal>
+      </React.Fragment>
+    );
+  }
   return (
     <React.Fragment>
       <Modal isOpen={toggleModalState}>
@@ -79,4 +89,5 @@ PokemonModal.propTypes = {
   prevState: PropTypes.bool.isRequired,
   handleClickNext: PropTypes.func.isRequired,
   handleClickPrev: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };

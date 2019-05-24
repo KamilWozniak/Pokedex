@@ -19,6 +19,7 @@ function ModalRedux(props) {
     onNextChange: toggleNext,
     nextState,
     filterPokemon: fetchNewModalPokemon,
+    loading,
   } = props;
   return (
     <React.Fragment>
@@ -31,6 +32,7 @@ function ModalRedux(props) {
         onNextChange={toggleNext}
         nextState={nextState}
         filterPokemon={fetchNewModalPokemon}
+        loading={loading}
       />
     </React.Fragment>
   );
@@ -40,6 +42,7 @@ const mapStateToProps = state => ({
   pokemonData: state.modalReducer.pokemonInModal,
   prevState: state.modalReducer.prevEvo,
   nextState: state.modalReducer.nextEvo,
+  loading: state.modalReducer.loadingModal,
 });
 
 export default connect(
@@ -61,4 +64,5 @@ ModalRedux.propTypes = {
   prevState: PropTypes.bool.isRequired,
   nextState: PropTypes.bool.isRequired,
   filterPokemon: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };

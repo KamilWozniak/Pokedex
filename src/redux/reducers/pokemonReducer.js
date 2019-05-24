@@ -1,11 +1,17 @@
 import {
-  GET_POKEMONS, SEARCH, SET_ITEMS_PER_PAGE, CHANGE_PAGE,
+  GET_POKEMONS,
+  SEARCH,
+  SET_ITEMS_PER_PAGE,
+  CHANGE_PAGE,
+  LOADING_OFF,
+  LOADING_ON,
 } from '../actions/types';
 
 const initialState = {
   pokemons: [],
   total: 0,
   currentPage: 1,
+  loading: true,
 };
 
 const pokemonReducer = (state = initialState, action) => {
@@ -34,6 +40,18 @@ const pokemonReducer = (state = initialState, action) => {
         ...state,
         pokemons: action.pokemons,
         currentPage: action.currPage,
+      };
+    }
+    case LOADING_ON: {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+    case LOADING_OFF: {
+      return {
+        ...state,
+        loading: false,
       };
     }
     default:
