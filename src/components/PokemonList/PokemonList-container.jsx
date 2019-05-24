@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Row } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import PokemonCard from '../PokemonCard';
+import pokeball from '../../assets/images/pokeball-loading.png';
 
 export default class PokemonListContainer extends Component {
   componentDidMount() {
@@ -19,8 +20,22 @@ export default class PokemonListContainer extends Component {
       getPokemonToModal(id);
     };
     if (loading) {
-      return <p>LOADING</p>;
+      return (
+        <React.Fragment>
+          <Row className="mt-5 pb-3 ">
+            <Col className="d-flex justify-content-center">
+              <img src={pokeball} alt="pokeball" className="loading-image" />
+            </Col>
+          </Row>
+          <Row>
+            <Col className="d-flex justify-content-center mt-2 font-weight-bold">
+              <p>LOADING, PLEASE WAIT</p>
+            </Col>
+          </Row>
+        </React.Fragment>
+      );
     }
+
     return (
       <Row>
         {pokemons.length > 0 ? (

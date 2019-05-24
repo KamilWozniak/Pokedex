@@ -17,8 +17,8 @@ export default function PokemonCard(props) {
           </CardTitle>
           <div className="d-flex justify-content-center">
             {pokemonInfo.type.map(type => (
-              <Badge className="mx-1 p-1" key={uuid.v4()} color="danger">
-                {type}
+              <Badge className="mx-1 p-1" key={uuid.v4()} color={type}>
+                <p className="text-white m-0 px-1">{type}</p>
               </Badge>
             ))}
           </div>

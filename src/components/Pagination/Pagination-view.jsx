@@ -19,8 +19,8 @@ export default function PaginationView(props) {
   }
   if (numberOfPages > 1) {
     return (
-      <Row>
-        <Col>
+      <Row className="my-5">
+        <Col className="d-flex justify-content-center">
           <Pagination>
             <PaginationItem disabled={Number(currentPage) === 1}>
               <PaginationLink first onClick={() => handlePageChange(1, itemsOnPage, lastSearch)} />

@@ -11,15 +11,17 @@ import Footer from '../Footer';
 
 function App() {
   return (
-    <Container className="p-5">
-      <Header />
-      <Search />
-      <Select />
-      <PokemonList />
-      <Pagination />
+    <React.Fragment>
+      <Container className="p-5">
+        <Header />
+        <Search />
+        <Select />
+        <PokemonList />
+        <Pagination />
+      </Container>
       <Footer />
       <Modal />
-    </Container>
+    </React.Fragment>
   );
 }
 

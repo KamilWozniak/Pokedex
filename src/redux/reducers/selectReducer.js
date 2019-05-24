@@ -1,7 +1,7 @@
 import { SET_ITEMS_PER_PAGE } from '../actions/types';
 
 const initialState = {
-  itemsPerPage: 10,
+  itemsPerPage: 12,
 };
 
 const selectReducer = (state = initialState, action) => {

@@ -22,16 +22,14 @@ export default function Select(props) {
               className="select-max-width cursor-pointer"
               onChange={handleChange}
             >
-              <option value="10">10</option>
-              <option value="20">20</option>
-              <option value="30">30</option>
-              <option value="40">40</option>
-              <option value="50">50</option>
+              <option value="12">12</option>
+              <option value="24">24</option>
+              <option value="36">36</option>
+              <option value="48">48</option>
               <option value="60">60</option>
-              <option value="70">70</option>
-              <option value="80">80</option>
-              <option value="90">90</option>
-              <option value="100">100</option>
+              <option value="72">72</option>
+              <option value="84">84</option>
+              <option value="96">96</option>
             </Input>
           </FormGroup>
         </div>
