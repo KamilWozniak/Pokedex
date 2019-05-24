@@ -12,7 +12,11 @@ export default function PaginationView(props) {
     lastSearch,
     handlePageChange,
     currentPage,
+    loading,
   } = props;
+  if (loading) {
+    return null;
+  }
   if (numberOfPages > 1) {
     return (
       <Row>
@@ -54,4 +58,5 @@ PaginationView.propTypes = {
   lastSearch: PropTypes.string.isRequired,
   handlePageChange: PropTypes.func.isRequired,
   currentPage: PropTypes.number.isRequired,
+  loading: PropTypes.bool.isRequired,
 };

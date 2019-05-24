@@ -6,7 +6,7 @@ import PaginationView from './Pagination-view';
 
 export default function PaginationContainer(props) {
   const {
-    total, itemsOnPage, onPageChange, lastSearch, currentPage,
+    total, itemsOnPage, onPageChange, lastSearch, currentPage, loading,
   } = props;
 
   const numberOfPages = Math.ceil(total / itemsOnPage);
@@ -135,6 +135,7 @@ export default function PaginationContainer(props) {
         lastSearch={lastSearch}
         handlePageChange={handlePageChange}
         currentPage={currentPage}
+        loading={loading}
       />
     </React.Fragment>
   );
@@ -146,4 +147,5 @@ PaginationContainer.propTypes = {
   onPageChange: PropTypes.func.isRequired,
   lastSearch: PropTypes.string.isRequired,
   currentPage: PropTypes.number.isRequired,
+  loading: PropTypes.bool.isRequired,
 };

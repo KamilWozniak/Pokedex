@@ -6,7 +6,7 @@ import { onPageChange } from '../../redux/actions/actions';
 
 function PaginationRedux(props) {
   const {
-    total, itemsOnPage, onPageChange: changePage, lastSearch, currentPage,
+    total, itemsOnPage, onPageChange: changePage, lastSearch, currentPage, loading,
   } = props;
   return (
     <React.Fragment>
@@ -16,6 +16,7 @@ function PaginationRedux(props) {
         onPageChange={changePage}
         lastSearch={lastSearch}
         currentPage={currentPage}
+        loading={loading}
       />
     </React.Fragment>
   );
@@ -26,6 +27,7 @@ const mapStateToProps = state => ({
   itemsOnPage: state.selectReducer.itemsPerPage,
   lastSearch: state.searchReducer.lastSearched,
   currentPage: state.pokemonReducer.currentPage,
+  loading: state.pokemonReducer.loading,
 });
 
 export default connect(
@@ -39,4 +41,5 @@ PaginationRedux.propTypes = {
   onPageChange: PropTypes.func.isRequired,
   lastSearch: PropTypes.string.isRequired,
   currentPage: PropTypes.number.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
