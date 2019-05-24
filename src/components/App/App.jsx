@@ -7,6 +7,7 @@ import Select from '../Select';
 import PokemonList from '../PokemonList';
 import Pagination from '../Pagination';
 import Modal from '../Modal';
+import Footer from '../Footer';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Select />
       <PokemonList />
       <Pagination />
+      <Footer />
       <Modal />
     </Container>
   );
