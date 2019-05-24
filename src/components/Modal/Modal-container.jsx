@@ -4,7 +4,16 @@ import uuid from 'uuid';
 import Modal from './Modal-view';
 
 export default function ModalContainer(props) {
-  const { toggleModalState, toggleModalAction, pokemonData } = props;
+  const {
+    toggleModalState,
+    toggleModalAction,
+    pokemonData,
+    onPrevChange,
+    prevState,
+    onNextChange,
+    nextState,
+    filterPokemon,
+  } = props;
   const closeModal = () => toggleModalAction(false);
 
   const handleMultipliers = (data) => {
@@ -32,8 +41,10 @@ export default function ModalContainer(props) {
 
   const handlePrevEvo = (data) => {
     if (!data) {
-      return <p>Previous evolution: There is no previous evolutions </p>;
+      onPrevChange(false);
+      return <p>Previous evolution: There is no previous evolution </p>;
     }
+    onPrevChange(true);
     return (
       <div>
         <p>Previous evolutions: </p>
@@ -48,8 +59,10 @@ export default function ModalContainer(props) {
 
   const handleNextEvo = (data) => {
     if (!data) {
-      return <p>Next evolution: There is no next evolutions </p>;
+      onNextChange(false);
+      return <p>Next evolution: There is no next evolution </p>;
     }
+    onNextChange(true);
     return (
       <div>
         <p>Next evolutions: </p>
@@ -62,6 +75,22 @@ export default function ModalContainer(props) {
     );
   };
 
+  const handleClickNext = (nextEvoArr) => {
+    if (nextState) {
+      const { num } = nextEvoArr[0];
+      filterPokemon(num);
+    }
+    return null;
+  };
+
+  const handleClickPrev = (prevEvoArr) => {
+    if (prevState) {
+      const { num } = prevEvoArr[0];
+      filterPokemon(num);
+    }
+    return null;
+  };
+
   return (
     <React.Fragment>
       <Modal
@@ -72,6 +101,10 @@ export default function ModalContainer(props) {
         handleCandys={handleCandys}
         handlePrevEvo={handlePrevEvo}
         handleNextEvo={handleNextEvo}
+        prevState={prevState}
+        nextState={nextState}
+        handleClickNext={handleClickNext}
+        handleClickPrev={handleClickPrev}
       />
     </React.Fragment>
   );
@@ -80,5 +113,10 @@ export default function ModalContainer(props) {
 ModalContainer.propTypes = {
   toggleModalState: PropTypes.bool.isRequired,
   toggleModalAction: PropTypes.func.isRequired,
+  onPrevChange: PropTypes.func.isRequired,
+  onNextChange: PropTypes.func.isRequired,
   pokemonData: PropTypes.instanceOf(Object).isRequired,
+  prevState: PropTypes.bool.isRequired,
+  nextState: PropTypes.bool.isRequired,
+  filterPokemon: PropTypes.func.isRequired,
 };

@@ -3,9 +3,6 @@ import * as actionType from './types';
 
 export const getPokemons = (url = '') => (dispatch) => {
   axios.get(`http://localhost:4000/pokemon${url}`).then((response) => {
-    // console.log(response.headers.link);
-    // console.log(response.headers['x-total-count']);
-    // console.log(response.data);
     dispatch({
       type: actionType.GET_POKEMONS,
       payload: response.data,
@@ -40,4 +37,18 @@ export const onPageChange = (pageNumber = 1, itemsPerPage = 10, query = '') => (
   fetch(`http://localhost:4000/pokemon/?_page=${pageNumber}&_limit=${itemsPerPage}&q=${query}`)
     .then(response => response.json())
     .then(data => dispatch({ type: actionType.CHANGE_PAGE, pokemons: data, currPage: pageNumber }));
+};
+
+export const onPrevChange = val => (dispatch) => {
+  dispatch({ type: actionType.CHANGE_PREV, payload: val });
+};
+
+export const onNextChange = val => (dispatch) => {
+  dispatch({ type: actionType.CHANGE_NEXT, payload: val });
+};
+
+export const filterPokemon = value => (dispatch) => {
+  fetch(`http://localhost:4000/pokemon/?num=${value}`)
+    .then(response => response.json())
+    .then(data => dispatch({ type: actionType.FILTER_POKEMON, payload: data[0] }));
 };

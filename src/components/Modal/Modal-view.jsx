@@ -14,8 +14,11 @@ export default function PokemonModal(props) {
     handleCandys,
     handlePrevEvo,
     handleNextEvo,
+    prevState,
+    nextState,
+    handleClickNext,
+    handleClickPrev,
   } = props;
-
   return (
     <React.Fragment>
       <Modal isOpen={toggleModalState}>
@@ -51,7 +54,13 @@ export default function PokemonModal(props) {
           {handleNextEvo(pokemonData.next_evolution)}
         </ModalBody>
         <ModalFooter>
+          <Button disabled={!prevState} onClick={() => handleClickPrev(pokemonData.prev_evolution)}>
+            Previous evolution
+          </Button>
           <Button onClick={closeModal}>Close</Button>
+          <Button disabled={!nextState} onClick={() => handleClickNext(pokemonData.next_evolution)}>
+            Next evolution
+          </Button>
         </ModalFooter>
       </Modal>
     </React.Fragment>
@@ -66,4 +75,8 @@ PokemonModal.propTypes = {
   handleCandys: PropTypes.func.isRequired,
   handlePrevEvo: PropTypes.func.isRequired,
   handleNextEvo: PropTypes.func.isRequired,
+  nextState: PropTypes.bool.isRequired,
+  prevState: PropTypes.bool.isRequired,
+  handleClickNext: PropTypes.func.isRequired,
+  handleClickPrev: PropTypes.func.isRequired,
 };

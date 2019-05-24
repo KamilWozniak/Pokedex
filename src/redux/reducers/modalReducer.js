@@ -1,4 +1,10 @@
-import { TOGGLE_MODAL, GET_MODAL_POKEMON } from '../actions/types';
+import {
+  TOGGLE_MODAL,
+  GET_MODAL_POKEMON,
+  CHANGE_PREV,
+  CHANGE_NEXT,
+  FILTER_POKEMON,
+} from '../actions/types';
 
 const initialState = {
   toggleModal: false,
@@ -8,6 +14,8 @@ const initialState = {
     weaknesses: [],
     next_evolution: [],
   },
+  prevEvo: false,
+  nextEvo: false,
 };
 
 const modalReducer = (state = initialState, action) => {
@@ -19,6 +27,24 @@ const modalReducer = (state = initialState, action) => {
       };
     }
     case GET_MODAL_POKEMON: {
+      return {
+        ...state,
+        pokemonInModal: action.payload,
+      };
+    }
+    case CHANGE_PREV: {
+      return {
+        ...state,
+        prevEvo: action.payload,
+      };
+    }
+    case CHANGE_NEXT: {
+      return {
+        ...state,
+        nextEvo: action.payload,
+      };
+    }
+    case FILTER_POKEMON: {
       return {
         ...state,
         pokemonInModal: action.payload,
