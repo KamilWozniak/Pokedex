@@ -38,7 +38,7 @@ export default class PokemonListContainer extends Component {
     }
 
     return (
-      <Row>
+      <Row className="w-100 ml-auto mr-auto">
         {pokemons.length > 0 ? (
           pokemons.map(pokemon => (
             <PokemonCard key={pokemon.id} pokemonInfo={pokemon} handleClick={handleClick} />

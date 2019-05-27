@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Modal, ModalHeader, ModalBody, ModalFooter, Button, Col,
+  Modal, ModalHeader, ModalBody, ModalFooter, Button,
 } from 'reactstrap';
 import uuid from 'uuid';
 
