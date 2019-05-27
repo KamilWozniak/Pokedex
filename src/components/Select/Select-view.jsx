@@ -9,11 +9,11 @@ export default function Select(props) {
   const { handleChange } = props;
   return (
     <Row className="mt-5">
-      <Col xs="5" className="d-flex ml-auto">
+      <Col className="d-flex ml-auto">
         <div className="ml-auto">
           <FormGroup className="d-flex align-items-center">
             <Label for="select" className="m-0">
-              <small className="mr-2">Pokémons per page: </small>
+              <small className="mr-2 font-weight-bold">Pokémons per page: </small>
             </Label>
             <Input
               type="select"
