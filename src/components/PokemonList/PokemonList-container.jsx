@@ -29,8 +29,8 @@ export default class PokemonListContainer extends Component {
             </Col>
           </Row>
           <Row>
-            <Col className="d-flex justify-content-center mt-2 font-weight-bold">
-              <p>LOADING, PLEASE WAIT</p>
+            <Col className="d-flex justify-content-center mt-2 mb-5">
+              <h1 className="text-uppercase">loading, please wait</h1>
             </Col>
           </Row>
         </React.Fragment>

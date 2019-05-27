@@ -1,4 +1,6 @@
 @import "../../assets/styles/variables";
+@import "../../assets/styles/mixins";
+
 .ul-style {
   list-style: none;
   margin: 0;
@@ -20,4 +22,8 @@
     font-weight: bold;
     text-transform: capitalize;
   }
+}
+
+.modal-loading-image {
+  @include loading-image(15vmin);
 }

@@ -1,16 +1,7 @@
-.loading-image {
-  animation: loading-spin infinite 1s linear;
-  height: 30vmin;
-  pointer-events: none;
-}
+@import "../../assets/styles/mixins";
 
-@keyframes loading-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.loading-image {
+  @include loading-image(30vmin);
 }
 
 .no-result {
