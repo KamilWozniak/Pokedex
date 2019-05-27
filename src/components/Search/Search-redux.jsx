@@ -21,6 +21,7 @@ function SearchRedux(props) {
     e.preventDefault();
     fetchPokemons(`?q=${searchValue}&_page=1&_limit=${itemsOnPage}`);
     handleSearchSubmit(searchValue);
+    window.scrollBy(0,350);
   };
 
   return (
