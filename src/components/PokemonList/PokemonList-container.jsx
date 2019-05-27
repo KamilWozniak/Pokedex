@@ -44,11 +44,14 @@ export default class PokemonListContainer extends Component {
             <PokemonCard key={pokemon.id} pokemonInfo={pokemon} handleClick={handleClick} />
           ))
         ) : (
-          <section>
+          <section className="w-100">
+            <Row>
             <Col className="text-center">
               <img className="no-result mt-3 mb-5" src={noResultImg} alt="no result" />
               <h3 className="mt-3 mb-5">Psyduck says that there is no such pokemon!</h3>
             </Col>
+            </Row>
+            
           </section>
         )}
       </Row>
