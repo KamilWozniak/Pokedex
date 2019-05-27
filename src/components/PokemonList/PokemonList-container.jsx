@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'reactstrap';
 import PokemonCard from '../PokemonCard';
 import pokeball from '../../assets/images/pokeball-loading.png';
+import noResultImg from '../../assets/images/no-results.png';
 
 export default class PokemonListContainer extends Component {
   componentDidMount() {
@@ -43,7 +44,12 @@ export default class PokemonListContainer extends Component {
             <PokemonCard key={pokemon.id} pokemonInfo={pokemon} handleClick={handleClick} />
           ))
         ) : (
-          <p>There are no results</p>
+          <Row className="w-100 my-5">
+            <Col className="text-center">
+              <img className="no-result mb-5" src={noResultImg} alt="no result" />
+              <h3>Psyduck says that there is no such pokemon!</h3>
+            </Col>
+          </Row>
         )}
       </Row>
     );
