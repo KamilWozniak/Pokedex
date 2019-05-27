@@ -23,7 +23,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "json:server": "json-server -p 4000 --watch db.json",
-    "json:server:delay": "json-server -d 2000 -p 4000 --watch db.json"
+    "json:server:delay": "json-server -d 2000 -p 4000 --watch db.json",
+    "json:server:search": "json-server -p 4000 --watch db2.json"
   },
   "eslintConfig": {
     "extends": "react-app"
