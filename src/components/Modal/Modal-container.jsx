@@ -22,14 +22,14 @@ export default function ModalContainer(props) {
       return null;
     }
     return (
-      <div>
-        <p>Multipliers:</p>
-        <ul>
+      <React.Fragment>
+        <p className="property-header">multipliers:</p>
+        <ul className="ul-style">
           {data.map(multi => (
             <li key={uuid.v4()}>{multi}</li>
           ))}
         </ul>
-      </div>
+      </React.Fragment>
     );
   };
 
@@ -37,42 +37,61 @@ export default function ModalContainer(props) {
     if (!data) {
       return null;
     }
-    return <p>{`Number of candys: ${data}`}</p>;
+    return (
+      <React.Fragment>
+        <p className="property-header">number of candys:</p>
+        <p>{data}</p>
+      </React.Fragment>
+    );
   };
 
   const handlePrevEvo = (data) => {
     if (!data) {
       onPrevChange(false);
-      return <p>Previous evolution: There is no previous evolution </p>;
+      return (
+        <React.Fragment>
+          <p className="property-header">previous evolution:</p>
+          <p>
+            <small>There is no previous evolution</small>
+          </p>
+        </React.Fragment>
+      );
     }
     onPrevChange(true);
     return (
-      <div>
-        <p>Previous evolutions: </p>
-        <ul>
+      <React.Fragment>
+        <p className="property-header">previous evolution:</p>
+        <ul className="ul-style">
           {data.map(item => (
             <li key={uuid.v4()}>{`#${item.num} ${item.name}`}</li>
           ))}
         </ul>
-      </div>
+      </React.Fragment>
     );
   };
 
   const handleNextEvo = (data) => {
     if (!data) {
       onNextChange(false);
-      return <p>Next evolution: There is no next evolution </p>;
+      return (
+        <React.Fragment>
+          <p className="property-header">next evolution:</p>
+          <p>
+            <small>There is no next evolution</small>
+          </p>
+        </React.Fragment>
+      );
     }
     onNextChange(true);
     return (
-      <div>
-        <p>Next evolutions: </p>
-        <ul>
+      <React.Fragment>
+        <p className="property-header">next evolution:</p>
+        <ul className="ul-style">
           {data.map(item => (
             <li key={uuid.v4()}>{`#${item.num} ${item.name}`}</li>
           ))}
         </ul>
-      </div>
+      </React.Fragment>
     );
   };
 

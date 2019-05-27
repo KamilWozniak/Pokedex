@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Modal, ModalHeader, ModalBody, ModalFooter, Button,
+  Modal, ModalHeader, ModalBody, ModalFooter, Button, Col,
 } from 'reactstrap';
 import uuid from 'uuid';
 
@@ -32,44 +32,66 @@ export default function PokemonModal(props) {
   return (
     <React.Fragment>
       <Modal isOpen={toggleModalState}>
-        <ModalHeader toggle={closeModal}>
-          <img src={pokemonData.img} alt={`${pokemonData.name}`} />
-          <p>
-            <strong>{`#${pokemonData.num} ${pokemonData.name}`}</strong>
-          </p>
-        </ModalHeader>
+        <ModalHeader toggle={closeModal} className="border border-white" />
         <ModalBody>
-          <p>Type:</p>
-          <ul>
-            {pokemonData.type.map(type => (
-              <li key={uuid.v4()}>{type}</li>
-            ))}
-          </ul>
-          <p>{`Height: ${pokemonData.height}`}</p>
-          <p>{`Weight: ${pokemonData.weight}`}</p>
-          <p>{`Candy Type: ${pokemonData.candy}`}</p>
-          {handleCandys(pokemonData.candy_count)}
-          <p>{`Egg: ${pokemonData.egg}`}</p>
-          <p>{`Spawn chance: ${pokemonData.spawn_chance}`}</p>
-          <p>{`Average spawns: ${pokemonData.avg_spawns}`}</p>
-          <p>{`Spawn time: ${pokemonData.spawn_time}`}</p>
-          {handleMultipliers(pokemonData.multipliers)}
-          <p>Weaknesses:</p>
-          <ul>
-            {pokemonData.weaknesses.map(weak => (
-              <li key={uuid.v4()}>{weak}</li>
-            ))}
-          </ul>
-          {handlePrevEvo(pokemonData.prev_evolution)}
-          {handleNextEvo(pokemonData.next_evolution)}
+          <div className="text-center">
+            <img src={pokemonData.img} alt={`${pokemonData.name}`} />
+            <h4 className="mt-3">{`#${pokemonData.num} ${pokemonData.name}`}</h4>
+            <p className="property-header">type:</p>
+            <ul className="ul-style">
+              {pokemonData.type.map(type => (
+                <li className={`text-${type}`} key={uuid.v4()}>
+                  {type}
+                </li>
+              ))}
+            </ul>
+            <p className="property-header">height:</p>
+            <p>{pokemonData.height}</p>
+            <p className="property-header">weight:</p>
+            <p>{pokemonData.weight}</p>
+            <p className="property-header">candy type:</p>
+            <p>{pokemonData.candy}</p>
+            {handleCandys(pokemonData.candy_count)}
+            <p className="property-header">egg:</p>
+            <p>{pokemonData.egg}</p>
+            <p className="property-header">spawn chance:</p>
+            <p>{pokemonData.spawn_chance}</p>
+            <p className="property-header">average spawns:</p>
+            <p>{pokemonData.avg_spawns}</p>
+            <p className="property-header">spawn time:</p>
+            <p>{pokemonData.spawn_time}</p>
+            {handleMultipliers(pokemonData.multipliers)}
+            <p className="property-header">weaknesses:</p>
+            <ul className="ul-style">
+              {pokemonData.weaknesses.map(weak => (
+                <li className={`text-${weak}`} key={uuid.v4()}>
+                  {weak}
+                </li>
+              ))}
+            </ul>
+            {handlePrevEvo(pokemonData.prev_evolution)}
+            {handleNextEvo(pokemonData.next_evolution)}
+          </div>
         </ModalBody>
-        <ModalFooter>
-          <Button disabled={!prevState} onClick={() => handleClickPrev(pokemonData.prev_evolution)}>
-            Previous evolution
+        <ModalFooter className="border border-white d-flex justify-content-between">
+          <Button
+            color="logoBlue"
+            disabled={!prevState}
+            onClick={() => handleClickPrev(pokemonData.prev_evolution)}
+            className="modal-button"
+          >
+            previous evolution
           </Button>
-          <Button onClick={closeModal}>Close</Button>
-          <Button disabled={!nextState} onClick={() => handleClickNext(pokemonData.next_evolution)}>
-            Next evolution
+          <Button color="logoBlue" className="modal-button" onClick={closeModal}>
+            close
+          </Button>
+          <Button
+            className="modal-button"
+            color="logoBlue"
+            disabled={!nextState}
+            onClick={() => handleClickNext(pokemonData.next_evolution)}
+          >
+            next evolution
           </Button>
         </ModalFooter>
       </Modal>

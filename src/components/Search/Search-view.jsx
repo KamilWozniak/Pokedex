@@ -22,7 +22,7 @@ export default function Search(props) {
               <Input type="text" placeholder="Search" value={searchValue} onChange={handleChange} />
               <InputGroupAddon addonType="append">
                 <Button color="logoBlue">
-                  <span className="text-logoYellow font-weight-bold">Search</span>
+                  <span className="text-logoYellow font-weight-bold text-capitalize">search</span>
                 </Button>
               </InputGroupAddon>
             </InputGroup>
