@@ -86,26 +86,34 @@ export default function PokemonModal(props) {
             {handleNextEvo(pokemonData.next_evolution)}
           </div>
         </ModalBody>
-        <ModalFooter className="border border-white d-flex justify-content-between">
+        <ModalFooter className="border border-white justify-content-center p-1 m-1">
+          <Row className="w-100 justify-content-between" >
+            <Col className="p-0 m-0 mb-1 text-center align-self-center">
+              <Button
+                color="logoBlue"
+                disabled={!prevState}
+                onClick={() => handleClickPrev(pokemonData.prev_evolution)}
+                className="modal-button"
+              >
+                previous evolution
+              </Button>
+            </Col>
+            <Col className="p-0 m-0 text-center align-self-center">
+              <Button color="logoBlue" className="modal-button" onClick={closeModal}>
+                close
+              </Button>
+            </Col>
+            <Col className="p-0 m-0 text-center align-self-center">
           <Button
-            color="logoBlue"
-            disabled={!prevState}
-            onClick={() => handleClickPrev(pokemonData.prev_evolution)}
-            className="modal-button"
-          >
-            previous evolution
-          </Button>
-          <Button color="logoBlue" className="modal-button" onClick={closeModal}>
-            close
-          </Button>
-          <Button
-            className="modal-button"
+            className="modal-button w-100"
             color="logoBlue"
             disabled={!nextState}
             onClick={() => handleClickNext(pokemonData.next_evolution)}
           >
-            next evolution
+            next <br/> evolution
           </Button>
+            </Col>
+          </Row>
         </ModalFooter>
       </Modal>
     </aside>

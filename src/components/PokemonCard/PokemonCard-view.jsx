@@ -18,7 +18,7 @@ export default function PokemonCard(props) {
               <CardImg
                 top
                 src={pokemonInfo.img}
-                alt="Pokemon image"
+                alt={`${pokemonInfo.name} image`}
                 className="pokemon-img text-center align-self-center"
               />
             </div>
