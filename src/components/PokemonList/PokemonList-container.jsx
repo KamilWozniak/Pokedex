@@ -22,7 +22,7 @@ export default class PokemonListContainer extends Component {
     };
     if (loading) {
       return (
-        <React.Fragment>
+        <section>
           <Row className="mt-5 pb-3 ">
             <Col className="d-flex justify-content-center">
               <img src={pokeball} alt="pokeball" className="loading-image" />
@@ -33,7 +33,7 @@ export default class PokemonListContainer extends Component {
               <h1 className="text-uppercase">loading, please wait</h1>
             </Col>
           </Row>
-        </React.Fragment>
+        </section>
       );
     }
 
@@ -44,12 +44,12 @@ export default class PokemonListContainer extends Component {
             <PokemonCard key={pokemon.id} pokemonInfo={pokemon} handleClick={handleClick} />
           ))
         ) : (
-          <Row className="w-100 my-5">
+          <section>
             <Col className="text-center">
-              <img className="no-result mb-5" src={noResultImg} alt="no result" />
-              <h3>Psyduck says that there is no such pokemon!</h3>
+              <img className="no-result mt-3 mb-5" src={noResultImg} alt="no result" />
+              <h3 className="mt-3 mb-5">Psyduck says that there is no such pokemon!</h3>
             </Col>
-          </Row>
+          </section>
         )}
       </Row>
     );

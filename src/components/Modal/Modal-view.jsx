@@ -23,7 +23,7 @@ export default function PokemonModal(props) {
   } = props;
   if (loading) {
     return (
-      <React.Fragment>
+      <aside>
         <Modal isOpen={toggleModalState}>
           <ModalHeader toggle={closeModal} className="border border-white" />
           <ModalBody>
@@ -39,11 +39,11 @@ export default function PokemonModal(props) {
             </Row>
           </ModalBody>
         </Modal>
-      </React.Fragment>
+      </aside>
     );
   }
   return (
-    <React.Fragment>
+    <aside>
       <Modal isOpen={toggleModalState}>
         <ModalHeader toggle={closeModal} className="border border-white" />
         <ModalBody>
@@ -108,7 +108,7 @@ export default function PokemonModal(props) {
           </Button>
         </ModalFooter>
       </Modal>
-    </React.Fragment>
+    </aside>
   );
 }
 

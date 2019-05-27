@@ -7,7 +7,7 @@ import {
 export default function Search(props) {
   const { searchValue, handleChange, handleSubmit } = props;
   return (
-    <React.Fragment>
+    <section role="search">
       <Row className="mt-5">
         <Col className="text-center">
           <p>
@@ -29,7 +29,7 @@ export default function Search(props) {
           </Form>
         </Col>
       </Row>
-    </React.Fragment>
+    </section>
   );
 }
 Search.propTypes = {
