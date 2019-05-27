@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# POKEDEX
 
-## Available Scripts
+This is a pokedex project that allows to search pokemon from created
+using JSON server fake REST API.
 
-In the project directory, you can run:
+## Requirements
 
-### `npm start`
+- make sure you have Node.js and npm installed
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How to run in a nutshell
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+In order to run this project in a standard mode you need to respectively:
 
-### `npm test`
+- go to the root folder of this project
+- install required dependencies by typing in the terminal `npm install`
+- run `npm run json:server` command in the terminal to run fake REST API
+- run `npm start` command to start local server
+- go to the [http://localhost:3000](http://localhost:3000) in the browser to view the project
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Remember: you can't run pokedex aplication without running JSON server first**
 
-### `npm run build`
+## Running JSON server
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Running JSON server using standard command given in [JSON server documentaion](https://github.com/typicode/json-server) (`json-server --watch db.json`) will run it on port 3000. Since "create react app" development server is also running on port 3000, we recommend to use `npm run json:server` command which will run the server on port 4000.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+If your port 4000 is already taken, you can change it to another port by:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- changing content of package.json file (lines 25 and 26) and setting number 4000 occuring after -p tag to another port number
+- going to src/redux/actions/actions.js and changing the constant `port` to desired port number
 
-### `npm run eject`
+### Running fake REST API with delay
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+In order to simulate delay of connection with real API, JSON server provides delay option. If you are interested with this option, you should
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- first, make sure that you are not runnig JSON-server already
+- then, run `npm run json:server:delay` command in your terminal.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Default delay is set to 2000ms. You can change it in the package.json file by altering the number in line 26 after the -d tag.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Altering the content provided by JSON server
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+In order to add or remove pokemons from API, you need to change the content of db.json file.
