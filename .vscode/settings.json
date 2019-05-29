@@ -1,0 +1,6 @@
+{
+    "files.eol": "\n",
+    "prettier.endOfLine": "lf",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2
+}

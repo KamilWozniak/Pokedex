@@ -87,7 +87,7 @@ export default function PokemonModal(props) {
           </div>
         </ModalBody>
         <ModalFooter className="border border-white justify-content-center p-1 m-1">
-          <Row className="w-100 justify-content-between" >
+          <Row className="w-100 justify-content-between">
             <Col className="p-0 m-0 mb-1 text-center align-self-center">
               <Button
                 color="logoBlue"
@@ -104,14 +104,16 @@ export default function PokemonModal(props) {
               </Button>
             </Col>
             <Col className="p-0 m-0 text-center align-self-center">
-          <Button
-            className="modal-button w-100"
-            color="logoBlue"
-            disabled={!nextState}
-            onClick={() => handleClickNext(pokemonData.next_evolution)}
-          >
-            next <br/> evolution
-          </Button>
+              <Button
+                className="modal-button w-100"
+                color="logoBlue"
+                disabled={!nextState}
+                onClick={() => handleClickNext(pokemonData.next_evolution)}
+              >
+                next
+                <br />
+                evolution
+              </Button>
             </Col>
           </Row>
         </ModalFooter>
