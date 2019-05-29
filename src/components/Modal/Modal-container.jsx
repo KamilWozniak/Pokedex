@@ -50,9 +50,9 @@ export default function ModalContainer(props) {
       onPrevChange(false);
       return (
         <React.Fragment>
-          <p className="property-header">previous evolution:</p>
+          <p className="property-header">previous evolutions:</p>
           <p>
-            <small>There is no previous evolution</small>
+            <small>There are no previous evolutions</small>
           </p>
         </React.Fragment>
       );
@@ -60,7 +60,7 @@ export default function ModalContainer(props) {
     onPrevChange(true);
     return (
       <React.Fragment>
-        <p className="property-header">previous evolution:</p>
+        <p className="property-header">previous evolutions:</p>
         <ul className="ul-style">
           {data.map(item => (
             <li key={uuid.v4()}>{`#${item.num} ${item.name}`}</li>
@@ -75,9 +75,9 @@ export default function ModalContainer(props) {
       onNextChange(false);
       return (
         <React.Fragment>
-          <p className="property-header">next evolution:</p>
+          <p className="property-header">next evolutions:</p>
           <p>
-            <small>There is no next evolution</small>
+            <small>There are no next evolutions</small>
           </p>
         </React.Fragment>
       );
@@ -85,7 +85,7 @@ export default function ModalContainer(props) {
     onNextChange(true);
     return (
       <React.Fragment>
-        <p className="property-header">next evolution:</p>
+        <p className="property-header">next evolutions:</p>
         <ul className="ul-style">
           {data.map(item => (
             <li key={uuid.v4()}>{`#${item.num} ${item.name}`}</li>

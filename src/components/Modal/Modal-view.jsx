@@ -93,9 +93,11 @@ export default function PokemonModal(props) {
                 color="logoBlue"
                 disabled={!prevState}
                 onClick={() => handleClickPrev(pokemonData.prev_evolution)}
-                className="modal-button"
+                className="modal-button w-100"
               >
-                previous evolution
+                previous
+                <br />
+                evolution
               </Button>
             </Col>
             <Col className="p-0 m-0 text-center align-self-center">
