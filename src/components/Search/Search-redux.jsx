@@ -21,7 +21,9 @@ function SearchRedux(props) {
     e.preventDefault();
     fetchPokemons(`?q=${searchValue}&_page=1&_limit=${itemsOnPage}`);
     handleSearchSubmit(searchValue);
-    window.scrollBy(0, 200);
+    if (window.scrollY < 50) {
+      window.scrollTo({ top: 200, left: 0, behavior: 'smooth' });
+    }
   };
 
   return (
