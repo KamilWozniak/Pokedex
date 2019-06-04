@@ -33,7 +33,7 @@ If your port 4000 is already taken, you can change it to another port by:
 In order to simulate delay of connection with real API, JSON server provides delay option. If you are interested with this option, you should
 
 - first, make sure that you are not runnig JSON-server already
-- then, run `npm run json:server:delay` command in your terminal.
+- then, run `npm run json:server:delay` command in your terminal
 
 Default delay is set to 2000ms. You can change it in the package.json file by altering the number in line 26 after the -d tag.
 
