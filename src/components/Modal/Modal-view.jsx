@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Modal, ModalHeader, ModalBody, ModalFooter, Button, Row, Col,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  Row,
+  Col,
 } from 'reactstrap';
 import uuid from 'uuid';
 import pokeball from '../../assets/images/pokeball-loading.png';

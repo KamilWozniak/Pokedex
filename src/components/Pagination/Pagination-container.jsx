@@ -5,7 +5,10 @@ import createNormalPagination from './components/createNormalPagination';
 import handleFirstPages from './components/handleFirstPages';
 import handleLastPages from './components/handleLastPages';
 import handleMiddlePages from './components/handleMiddlePages';
-import { ITEMS_TO_ACTIVATE_BOTH_DOTTS, BOUNDARY_OF_NORMAL_PAGINATION } from './components/paginationControll';
+import {
+  ITEMS_TO_ACTIVATE_BOTH_DOTTS,
+  BOUNDARY_OF_NORMAL_PAGINATION,
+} from './components/paginationControll';
 
 
 export default function PaginationContainer(props) {

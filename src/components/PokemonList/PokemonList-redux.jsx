@@ -2,7 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import PokemonList from './PokemonList-container';
-import { getPokemons, toggleModal, getPokemonToModal } from '../../redux/actions/actions';
+import {
+  getPokemons,
+  toggleModal,
+  getPokemonToModal,
+} from '../../redux/actions/actions';
 
 function PokemonListRedux(props) {
   const {

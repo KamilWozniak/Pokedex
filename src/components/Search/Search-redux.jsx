@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Search from './Search-view';
-import { updateSearch, onSearchSubmit, getPokemons } from '../../redux/actions/actions';
+import {
+  updateSearch,
+  onSearchSubmit,
+  getPokemons,
+} from '../../redux/actions/actions';
 
 function SearchRedux(props) {
   const {
@@ -40,7 +44,11 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { updateSearch, onSearchSubmit, getPokemons },
+  {
+    updateSearch,
+    onSearchSubmit,
+    getPokemons,
+  },
 )(SearchRedux);
 
 SearchRedux.propTypes = {

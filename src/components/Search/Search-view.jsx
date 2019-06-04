@@ -1,11 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Row, Col, Form, Input, InputGroup, InputGroupAddon, Button,
+  Row,
+  Col,
+  Form,
+  Input,
+  InputGroup,
+  InputGroupAddon,
+  Button,
 } from 'reactstrap';
 
 export default function Search(props) {
-  const { searchValue, handleChange, handleSubmit } = props;
+  const {
+    searchValue,
+    handleChange,
+    handleSubmit,
+  } = props;
   return (
     <section role="search">
       <Row className="mt-5">

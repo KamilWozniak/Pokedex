@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Pagination, PaginationItem, PaginationLink, Row, Col,
+  Pagination,
+  PaginationItem,
+  PaginationLink,
+  Row,
+  Col,
 } from 'reactstrap';
 
 export default function PaginationView(props) {
