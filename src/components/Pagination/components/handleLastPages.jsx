@@ -1,6 +1,7 @@
 import React from 'react';
 import uuid from 'uuid';
 import { PaginationItem, PaginationLink } from 'reactstrap';
+import { BOUNDARY_OF_NORMAL_PAGINATION } from './paginationControll';
 
 const handleLastPages = (
   pages,
@@ -17,7 +18,7 @@ const handleLastPages = (
     {Array(pages)
       .fill(1)
       .map((item, id) => {
-        if (id + 1 > numberOfPages - 6) {
+        if (id + 1 > numberOfPages - BOUNDARY_OF_NORMAL_PAGINATION) {
           return (
             <React.Fragment key={uuid.v4()}>
               <PaginationItem active={id + 1 === currentPage} key={uuid.v4()}>

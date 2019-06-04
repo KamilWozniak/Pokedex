@@ -5,6 +5,7 @@ import createNormalPagination from './components/createNormalPagination';
 import handleFirstPages from './components/handleFirstPages';
 import handleLastPages from './components/handleLastPages';
 import handleMiddlePages from './components/handleMiddlePages';
+import { ITEMS_TO_ACTIVATE_BOTH_DOTTS, BOUNDARY_OF_NORMAL_PAGINATION } from './components/paginationControll';
 
 
 export default function PaginationContainer(props) {
@@ -24,7 +25,8 @@ export default function PaginationContainer(props) {
   };
 
   const handlePages = (pages) => {
-    if (pages > 1 && pages < 7) {
+    if (pages > 1
+      && pages <= BOUNDARY_OF_NORMAL_PAGINATION) {
       return createNormalPagination(
         pages,
         handlePageChange,
@@ -33,7 +35,8 @@ export default function PaginationContainer(props) {
         lastSearch,
       );
     }
-    if (pages > 6 && currentPage < 4) {
+    if (pages > BOUNDARY_OF_NORMAL_PAGINATION
+      && currentPage <= ITEMS_TO_ACTIVATE_BOTH_DOTTS) {
       return handleFirstPages(
         currentPage,
         handlePageChange,
@@ -41,7 +44,8 @@ export default function PaginationContainer(props) {
         lastSearch,
       );
     }
-    if (pages > 6 && currentPage > numberOfPages - 3) {
+    if (pages > BOUNDARY_OF_NORMAL_PAGINATION
+      && currentPage > numberOfPages - ITEMS_TO_ACTIVATE_BOTH_DOTTS) {
       return handleLastPages(
         pages,
         numberOfPages,
@@ -51,7 +55,9 @@ export default function PaginationContainer(props) {
         lastSearch,
       );
     }
-    if (pages > 6 && currentPage >= 4 && currentPage <= numberOfPages - 3) {
+    if (pages > BOUNDARY_OF_NORMAL_PAGINATION
+      && currentPage > ITEMS_TO_ACTIVATE_BOTH_DOTTS
+      && currentPage <= numberOfPages - ITEMS_TO_ACTIVATE_BOTH_DOTTS) {
       return handleMiddlePages(
         pages,
         currentPage,
@@ -62,7 +68,7 @@ export default function PaginationContainer(props) {
     }
     return null;
   };
-  // add variable that describe how many page items on site
+
   return (
     <React.Fragment>
       <PaginationView

@@ -41,7 +41,7 @@ export const getPokemonToModal = id => (dispatch) => {
     });
 };
 
-export const onPageChange = (pageNumber = 1, itemsPerPage = 10, query = '') => (dispatch) => {
+export const onPageChange = (pageNumber = 1, itemsPerPage = 12, query = '') => (dispatch) => {
   dispatch({ type: actionType.LOADING_ON });
   fetch(`http://localhost:${port}/pokemon/?_page=${pageNumber}&_limit=${itemsPerPage}&q=${query}`)
     .then(response => response.json())

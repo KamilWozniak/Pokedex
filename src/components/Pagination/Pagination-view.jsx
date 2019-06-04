@@ -35,7 +35,9 @@ export default function PaginationView(props) {
                   onClick={() => handlePageChange(currentPage - 1, itemsOnPage, lastSearch)}
                 />
               </PaginationItem>
+
               {handlePages(numberOfPages)}
+
               <PaginationItem disabled={currentPage === numberOfPages}>
                 <PaginationLink
                   next

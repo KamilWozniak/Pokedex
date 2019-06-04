@@ -1,10 +1,16 @@
 import React from 'react';
 import uuid from 'uuid';
 import { PaginationItem, PaginationLink } from 'reactstrap';
+import { BOUNDARY_OF_NORMAL_PAGINATION } from './paginationControll';
 
-const handleFirstPages = (currentPage, handlePageChange, itemsOnPage, lastSearch) => (
+const handleFirstPages = (
+  currentPage,
+  handlePageChange,
+  itemsOnPage,
+  lastSearch,
+) => (
   <React.Fragment>
-    {Array(6)
+    {Array(BOUNDARY_OF_NORMAL_PAGINATION)
       .fill(1)
       .map((item, id) => (
         <React.Fragment key={uuid.v4()}>
