@@ -12,7 +12,7 @@ import Footer from '../Footer';
 function App() {
   return (
     <React.Fragment>
-      <Container className="p-5">
+      <Container className="p-4">
         <Header />
         <Search />
         <Select />
