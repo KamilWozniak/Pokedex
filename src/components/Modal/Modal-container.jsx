@@ -24,8 +24,8 @@ export default function ModalContainer(props) {
     }
     return (
       <Row className="modal-row-style">
-        <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
-          <p className="modal-property-header ">multipliers:</p>
+        <Col xs="5" className="modal-col-style">
+          <p className="modal-property-header ">multipliers</p>
         </Col>
         <Col xs="5">
           <ul className="modal-ul-style">
@@ -48,11 +48,10 @@ export default function ModalContainer(props) {
     }
     return (
       <Row className="modal-row-style">
-        <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
-          <div className="modal-property-header">
-            <p className="m-0 text-right">No. of</p>
-            <p className="m-0 text-right">candys:</p>
-          </div>
+        <Col xs="5" className="modal-col-style">
+          <p className="modal-property-header">
+            number of candys
+          </p>
         </Col>
         <Col xs="5" className="d-flex">
           <p className="modal-paragraph align-self-center ml-auto mr-auto">{data}</p>
@@ -66,11 +65,10 @@ export default function ModalContainer(props) {
       onPrevChange(false);
       return (
         <Row className="modal-row-style">
-          <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
-            <div className="modal-property-header">
-              <p className="m-0 text-right">Previous</p>
-              <p className="m-0 text-right">evolutions:</p>
-            </div>
+          <Col xs="5" className="modal-col-style">
+            <p className="modal-property-header">
+              previous evolutions
+            </p>
           </Col>
           <Col xs="5" className="d-flex">
             <p className="modal-paragraph align-self-center ml-auto mr-auto">none</p>
@@ -81,11 +79,10 @@ export default function ModalContainer(props) {
     onPrevChange(true);
     return (
       <Row className="modal-row-style">
-        <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
-          <div className="modal-property-header">
-            <p className="m-0 text-right">previous</p>
-            <p className="m-0 text-right">evolutions:</p>
-          </div>
+        <Col xs="5" className="modal-col-style">
+          <p className="modal-property-header">
+            previous evolutions
+          </p>
         </Col>
         <Col xs="5" className="d-flex">
           <ul className="modal-ul-style w-100 align-self-center">
@@ -105,11 +102,10 @@ export default function ModalContainer(props) {
       onNextChange(false);
       return (
         <Row className="modal-row-style">
-          <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
-            <div className="modal-property-header">
-              <p className="m-0 text-right">next</p>
-              <p className="m-0 text-right">evolutions:</p>
-            </div>
+          <Col xs="5" className="modal-col-style">
+            <p className="modal-property-header">
+              next evolutions
+            </p>
           </Col>
           <Col xs="5" className="d-flex">
             <p className="modal-paragraph align-self-center ml-auto mr-auto">none</p>
@@ -119,20 +115,12 @@ export default function ModalContainer(props) {
     }
     onNextChange(true);
     return (
-      // <React.Fragment>
-      //   <p className="property-header">next evolutions:</p>
-      //   <ul className="ul-style">
-      //     {data.map(item => (
-      //       <li key={uuid.v4()}>{`#${item.num} ${item.name}`}</li>
-      //     ))}
-      //   </ul>
-      // </React.Fragment>
+
       <Row className="modal-row-style">
-        <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
-          <div className="modal-property-header">
-            <p className="m-0 text-right">next</p>
-            <p className="m-0 text-right">evolutions:</p>
-          </div>
+        <Col xs="5" className="modal-col-style">
+          <p className="modal-property-header">
+            next evolutions
+          </p>
         </Col>
         <Col xs="5" className="d-flex">
           <ul className="modal-ul-style w-100 align-self-center">

@@ -52,8 +52,8 @@ export default function PokemonModal(props) {
             <h4 className="mt-3">{`#${pokemonData.num} ${pokemonData.name}`}</h4>
 
             <Row className="modal-row-style">
-              <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
-                <p className="modal-property-header ">type:</p>
+              <Col xs="5" className="modal-col-style">
+                <p className="modal-property-header ">type</p>
               </Col>
               <Col xs="5">
                 <ul className="modal-ul-style">
@@ -69,8 +69,8 @@ export default function PokemonModal(props) {
             </Row>
 
             <Row className="modal-row-style">
-              <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
-                <p className="modal-property-header">height:</p>
+              <Col xs="5" className="modal-col-style">
+                <p className="modal-property-header">height</p>
               </Col>
               <Col xs="5">
                 <p className="m-0">{pokemonData.height}</p>
@@ -78,8 +78,8 @@ export default function PokemonModal(props) {
             </Row>
 
             <Row className="modal-row-style">
-              <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
-                <p className="modal-property-header">weight:</p>
+              <Col xs="5" className="modal-col-style">
+                <p className="modal-property-header">weight</p>
               </Col>
               <Col xs="5">
                 <p className="modal-paragraph">{pokemonData.weight}</p>
@@ -87,11 +87,8 @@ export default function PokemonModal(props) {
             </Row>
 
             <Row className="modal-row-style">
-              <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
-                <div className="modal-property-header">
-                  <p className="m-0 text-right">candy</p>
-                  <p className="m-0 text-right">type:</p>
-                </div>
+              <Col xs="5" className="modal-col-style">
+                <p className="modal-property-header">candy type</p>
               </Col>
               <Col xs="5" className="d-flex">
                 <p className="modal-paragraph align-self-center ml-auto mr-auto">
@@ -103,8 +100,8 @@ export default function PokemonModal(props) {
             {handleCandys(pokemonData.candy_count)}
 
             <Row className="modal-row-style">
-              <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
-                <p className="modal-property-header">egg:</p>
+              <Col xs="5" className="modal-col-style">
+                <p className="modal-property-header">egg</p>
               </Col>
               <Col xs="5">
                 <p className="modal-paragraph">{pokemonData.egg}</p>
@@ -112,11 +109,10 @@ export default function PokemonModal(props) {
             </Row>
 
             <Row className="modal-row-style">
-              <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
-                <div className="modal-property-header">
-                  <p className="m-0 text-right">spawn</p>
-                  <p className="m-0 text-right">chance:</p>
-                </div>
+              <Col xs="5" className="modal-col-style">
+                <p className="modal-property-header">
+                  spawn chance
+                </p>
               </Col>
               <Col xs="5" className="d-flex">
                 <p className="modal-paragraph align-self-center ml-auto mr-auto">
@@ -124,13 +120,12 @@ export default function PokemonModal(props) {
                 </p>
               </Col>
             </Row>
-            
+
             <Row className="modal-row-style">
-              <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
-                <div className="modal-property-header">
-                  <p className="m-0 text-right">average</p>
-                  <p className="m-0 text-right">spawns:</p>
-                </div>
+              <Col xs="5" className="modal-col-style">
+                <p className="modal-property-header">
+                  average spawns
+                </p>
               </Col>
               <Col xs="5" className="d-flex">
                 <p className="modal-paragraph align-self-center ml-auto mr-auto">
@@ -140,11 +135,10 @@ export default function PokemonModal(props) {
             </Row>
 
             <Row className="modal-row-style">
-              <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
-                <div className="modal-property-header">
-                  <p className="m-0 text-right">spawn</p>
-                  <p className="m-0 text-right">time:</p>
-                </div>
+              <Col xs="5" className="modal-col-style">
+                <p className="modal-property-header">
+                  spawn time
+                </p>
               </Col>
               <Col xs="5" className="d-flex">
                 <p className="modal-paragraph align-self-center ml-auto mr-auto">
@@ -156,8 +150,8 @@ export default function PokemonModal(props) {
             {handleMultipliers(pokemonData.multipliers)}
 
             <Row className="modal-row-style">
-              <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
-                <p className="modal-property-header ">weaknesses:</p>
+              <Col xs="5" className="modal-col-style">
+                <p className="modal-property-header ">weaknesses</p>
               </Col>
               <Col xs="5">
                 <ul className="modal-ul-style">
