@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Pagination, PaginationItem, PaginationLink, Row, Col,
+  Pagination,
+  PaginationItem,
+  PaginationLink,
+  Row,
+  Col,
 } from 'reactstrap';
 
 export default function PaginationView(props) {
@@ -35,7 +39,9 @@ export default function PaginationView(props) {
                   onClick={() => handlePageChange(currentPage - 1, itemsOnPage, lastSearch)}
                 />
               </PaginationItem>
+
               {handlePages(numberOfPages)}
+
               <PaginationItem disabled={currentPage === numberOfPages}>
                 <PaginationLink
                   next

@@ -6,7 +6,12 @@ import { onPageChange } from '../../redux/actions/actions';
 
 function PaginationRedux(props) {
   const {
-    total, itemsOnPage, onPageChange: changePage, lastSearch, currentPage, loading,
+    total,
+    itemsOnPage,
+    onPageChange: changePage,
+    lastSearch,
+    currentPage,
+    loading,
   } = props;
   return (
     <React.Fragment>

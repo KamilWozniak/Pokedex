@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Row, Col, FormGroup, Label, Input,
+  Row,
+  Col,
+  FormGroup,
+  Label,
+  Input,
 } from 'reactstrap';
 import './Select-view.scss';
 
