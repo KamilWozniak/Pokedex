@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
+import { Row, Col } from 'reactstrap';
 import Modal from './Modal-view';
 
 export default function ModalContainer(props) {
@@ -22,14 +23,22 @@ export default function ModalContainer(props) {
       return null;
     }
     return (
-      <React.Fragment>
-        <p className="property-header">multipliers:</p>
-        <ul className="ul-style">
-          {data.map(multi => (
-            <li key={uuid.v4()}>{multi}</li>
-          ))}
-        </ul>
-      </React.Fragment>
+      <Row className="modal-row-style">
+        <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
+          <p className="modal-property-header ">multipliers:</p>
+        </Col>
+        <Col xs="5">
+          <ul className="modal-ul-style">
+            {data.map(multi => (
+              <li key={uuid.v4()}>
+                <li key={uuid.v4()} color={multi}>
+                  {multi}
+                </li>
+              </li>
+            ))}
+          </ul>
+        </Col>
+      </Row>
     );
   };
 
@@ -38,10 +47,17 @@ export default function ModalContainer(props) {
       return null;
     }
     return (
-      <React.Fragment>
-        <p className="property-header">number of candys:</p>
-        <p>{data}</p>
-      </React.Fragment>
+      <Row className="modal-row-style">
+        <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
+          <div className="modal-property-header">
+            <p className="m-0 text-right">No. of</p>
+            <p className="m-0 text-right">candys:</p>
+          </div>
+        </Col>
+        <Col xs="5" className="d-flex">
+          <p className="modal-paragraph align-self-center ml-auto mr-auto">{data}</p>
+        </Col>
+      </Row>
     );
   };
 
@@ -49,24 +65,38 @@ export default function ModalContainer(props) {
     if (!data) {
       onPrevChange(false);
       return (
-        <React.Fragment>
-          <p className="property-header">previous evolutions:</p>
-          <p>
-            <small>There are no previous evolutions</small>
-          </p>
-        </React.Fragment>
+        <Row className="modal-row-style">
+          <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
+            <div className="modal-property-header">
+              <p className="m-0 text-right">Previous</p>
+              <p className="m-0 text-right">evolutions:</p>
+            </div>
+          </Col>
+          <Col xs="5" className="d-flex">
+            <p className="modal-paragraph align-self-center ml-auto mr-auto">none</p>
+          </Col>
+        </Row>
       );
     }
     onPrevChange(true);
     return (
-      <React.Fragment>
-        <p className="property-header">previous evolutions:</p>
-        <ul className="ul-style">
-          {data.map(item => (
-            <li key={uuid.v4()}>{`#${item.num} ${item.name}`}</li>
-          ))}
-        </ul>
-      </React.Fragment>
+      <Row className="modal-row-style">
+        <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
+          <div className="modal-property-header">
+            <p className="m-0 text-right">previous</p>
+            <p className="m-0 text-right">evolutions:</p>
+          </div>
+        </Col>
+        <Col xs="5" className="d-flex">
+          <ul className="modal-ul-style w-100 align-self-center">
+            {data.map(evo => (
+              <li key={uuid.v4()} className=" text-center my-auto">
+                <p className="m-0">{`#${evo.num} ${evo.name}`}</p>
+              </li>
+            ))}
+          </ul>
+        </Col>
+      </Row>
     );
   };
 
@@ -74,24 +104,46 @@ export default function ModalContainer(props) {
     if (!data) {
       onNextChange(false);
       return (
-        <React.Fragment>
-          <p className="property-header">next evolutions:</p>
-          <p>
-            <small>There are no next evolutions</small>
-          </p>
-        </React.Fragment>
+        <Row className="modal-row-style">
+          <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
+            <div className="modal-property-header">
+              <p className="m-0 text-right">next</p>
+              <p className="m-0 text-right">evolutions:</p>
+            </div>
+          </Col>
+          <Col xs="5" className="d-flex">
+            <p className="modal-paragraph align-self-center ml-auto mr-auto">none</p>
+          </Col>
+        </Row>
       );
     }
     onNextChange(true);
     return (
-      <React.Fragment>
-        <p className="property-header">next evolutions:</p>
-        <ul className="ul-style">
-          {data.map(item => (
-            <li key={uuid.v4()}>{`#${item.num} ${item.name}`}</li>
-          ))}
-        </ul>
-      </React.Fragment>
+      // <React.Fragment>
+      //   <p className="property-header">next evolutions:</p>
+      //   <ul className="ul-style">
+      //     {data.map(item => (
+      //       <li key={uuid.v4()}>{`#${item.num} ${item.name}`}</li>
+      //     ))}
+      //   </ul>
+      // </React.Fragment>
+      <Row className="modal-row-style">
+        <Col xs={{ size: '3', offset: 2 }} className="modal-col-style">
+          <div className="modal-property-header">
+            <p className="m-0 text-right">next</p>
+            <p className="m-0 text-right">evolutions:</p>
+          </div>
+        </Col>
+        <Col xs="5" className="d-flex">
+          <ul className="modal-ul-style w-100 align-self-center">
+            {data.map(evo => (
+              <li key={uuid.v4()} className=" text-center my-auto">
+                <p className="m-0">{`#${evo.num} ${evo.name}`}</p>
+              </li>
+            ))}
+          </ul>
+        </Col>
+      </Row>
     );
   };
 
