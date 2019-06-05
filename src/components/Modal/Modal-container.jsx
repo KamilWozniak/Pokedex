@@ -23,22 +23,25 @@ export default function ModalContainer(props) {
       return null;
     }
     return (
-      <Row className="modal-row-style">
-        <Col xs="5" className="modal-col-style">
-          <p className="modal-property-header ">multipliers</p>
-        </Col>
-        <Col xs="5">
-          <ul className="modal-ul-style">
-            {data.map(multi => (
-              <li key={uuid.v4()}>
-                <li key={uuid.v4()} color={multi}>
-                  {multi}
+      <React.Fragment>
+        <Row className="modal-row-style">
+          <Col xs="5" className="modal-col-style">
+            <p className="modal-property-header ">multipliers</p>
+          </Col>
+          <Col xs="5">
+            <ul className="modal-ul-style">
+              {data.map(multi => (
+                <li key={uuid.v4()}>
+                  <li key={uuid.v4()} color={multi}>
+                    {multi}
+                  </li>
                 </li>
-              </li>
-            ))}
-          </ul>
-        </Col>
-      </Row>
+              ))}
+            </ul>
+          </Col>
+        </Row>
+        <hr />
+      </React.Fragment>
     );
   };
 
@@ -47,16 +50,17 @@ export default function ModalContainer(props) {
       return null;
     }
     return (
-      <Row className="modal-row-style">
-        <Col xs="5" className="modal-col-style">
-          <p className="modal-property-header">
-            number of candys
-          </p>
-        </Col>
-        <Col xs="5" className="d-flex">
-          <p className="modal-paragraph align-self-center ml-auto mr-auto">{data}</p>
-        </Col>
-      </Row>
+      <React.Fragment>
+        <Row className="modal-row-style">
+          <Col xs="5" className="modal-col-style">
+            <p className="modal-property-header">number of candys</p>
+          </Col>
+          <Col xs="5" className="d-flex">
+            <p className="modal-paragraph align-self-center ml-auto mr-auto">{data}</p>
+          </Col>
+        </Row>
+        <hr />
+      </React.Fragment>
     );
   };
 
@@ -66,9 +70,7 @@ export default function ModalContainer(props) {
       return (
         <Row className="modal-row-style">
           <Col xs="5" className="modal-col-style">
-            <p className="modal-property-header">
-              previous evolutions
-            </p>
+            <p className="modal-property-header">previous evolutions</p>
           </Col>
           <Col xs="5" className="d-flex">
             <p className="modal-paragraph align-self-center ml-auto mr-auto">none</p>
@@ -80,9 +82,7 @@ export default function ModalContainer(props) {
     return (
       <Row className="modal-row-style">
         <Col xs="5" className="modal-col-style">
-          <p className="modal-property-header">
-            previous evolutions
-          </p>
+          <p className="modal-property-header">previous evolutions</p>
         </Col>
         <Col xs="5" className="d-flex">
           <ul className="modal-ul-style w-100 align-self-center">
@@ -103,9 +103,7 @@ export default function ModalContainer(props) {
       return (
         <Row className="modal-row-style">
           <Col xs="5" className="modal-col-style">
-            <p className="modal-property-header">
-              next evolutions
-            </p>
+            <p className="modal-property-header">next evolutions</p>
           </Col>
           <Col xs="5" className="d-flex">
             <p className="modal-paragraph align-self-center ml-auto mr-auto">none</p>
@@ -115,12 +113,9 @@ export default function ModalContainer(props) {
     }
     onNextChange(true);
     return (
-
       <Row className="modal-row-style">
         <Col xs="5" className="modal-col-style">
-          <p className="modal-property-header">
-            next evolutions
-          </p>
+          <p className="modal-property-header">next evolutions</p>
         </Col>
         <Col xs="5" className="d-flex">
           <ul className="modal-ul-style w-100 align-self-center">
