@@ -5,7 +5,7 @@ using JSON server fake REST API.
 
 ## Requirements
 
-- make sure you have Node.js and npm installed
+- make sure you have Node.js and npm installed.
 
 ## How to run in a nutshell
 
