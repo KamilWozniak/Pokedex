@@ -11,10 +11,10 @@ export const handleMultipliers = (data) => {
   return (
     <React.Fragment>
       <Row className="modal-row-style">
-        <Col xs="5" className="modal-col-style">
+        <Col xs="6" className="modal-col-style">
           <p className="modal-property-header ">multipliers</p>
         </Col>
-        <Col xs="5">
+        <Col xs="4">
           <ul className="modal-ul-style">
             {data.map(multi => (
               <li key={uuid.v4()}>
@@ -36,10 +36,10 @@ export const handleCandys = (data) => {
   return (
     <React.Fragment>
       <Row className="modal-row-style">
-        <Col xs="5" className="modal-col-style">
+        <Col xs="6" className="modal-col-style">
           <p className="modal-property-header">number of candys</p>
         </Col>
-        <Col xs="5" className="d-flex">
+        <Col xs="4" className="d-flex">
           <p className="modal-paragraph align-self-center ml-auto mr-auto">{data}</p>
         </Col>
       </Row>
@@ -53,10 +53,10 @@ export const handlePrevEvo = (data) => {
     store.dispatch(onPrevChange(false));
     return (
       <Row className="modal-row-style">
-        <Col xs="5" className="modal-col-style">
+        <Col xs="6" className="modal-col-style">
           <p className="modal-property-header">previous evolutions</p>
         </Col>
-        <Col xs="5" className="d-flex">
+        <Col xs="4" className="d-flex">
           <p className="modal-paragraph align-self-center ml-auto mr-auto">none</p>
         </Col>
       </Row>
@@ -65,10 +65,10 @@ export const handlePrevEvo = (data) => {
   store.dispatch(onPrevChange(true));
   return (
     <Row className="modal-row-style">
-      <Col xs="5" className="modal-col-style">
+      <Col xs="6" className="modal-col-style">
         <p className="modal-property-header">previous evolutions</p>
       </Col>
-      <Col xs="5" className="d-flex">
+      <Col xs="4" className="d-flex">
         <ul className="modal-ul-style w-100 align-self-center">
           {data.map(evo => (
             <li key={uuid.v4()} className=" text-center my-auto">
@@ -86,10 +86,10 @@ export const handleNextEvo = (data) => {
     store.dispatch(onNextChange(false));
     return (
       <Row className="modal-row-style">
-        <Col xs="5" className="modal-col-style">
+        <Col xs="6" className="modal-col-style">
           <p className="modal-property-header">next evolutions</p>
         </Col>
-        <Col xs="5" className="d-flex">
+        <Col xs="4" className="d-flex">
           <p className="modal-paragraph align-self-center ml-auto mr-auto">none</p>
         </Col>
       </Row>
@@ -98,10 +98,10 @@ export const handleNextEvo = (data) => {
   store.dispatch(onNextChange(true));
   return (
     <Row className="modal-row-style">
-      <Col xs="5" className="modal-col-style">
+      <Col xs="6" className="modal-col-style">
         <p className="modal-property-header">next evolutions</p>
       </Col>
-      <Col xs="5" className="d-flex">
+      <Col xs="4" className="d-flex">
         <ul className="modal-ul-style w-100 align-self-center">
           {data.map(evo => (
             <li key={uuid.v4()} className=" text-center my-auto">
