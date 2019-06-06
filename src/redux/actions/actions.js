@@ -52,10 +52,12 @@ export const onPageChange = (pageNumber = 1, itemsPerPage = 12, query = '') => (
 };
 
 export const onPrevChange = val => (dispatch) => {
+  console.log("in action prev");
   dispatch({ type: actionType.CHANGE_PREV, payload: val });
 };
 
 export const onNextChange = val => (dispatch) => {
+  console.log("in action next");
   dispatch({ type: actionType.CHANGE_NEXT, payload: val });
 };
 
