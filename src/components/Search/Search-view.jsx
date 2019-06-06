@@ -18,7 +18,7 @@ export default function Search(props) {
   } = props;
   return (
     <section role="search">
-      <Row className="mt-5">
+      <Row>
         <Col className="text-center">
           <p>
             <strong>Find Pokémon</strong>
