@@ -12,10 +12,12 @@ import Footer from '../Footer';
 function App() {
   return (
     <React.Fragment>
-      <Container className="p-4">
+      <Container className="p-xs-1 p-sm-4 pb-0 mb-0">
         <Header />
         <Search />
         <Select />
+      </Container>
+      <Container fluid className="px-xs-1 px-sm-4 mt-0 pt-0">
         <PokemonList />
         <Pagination />
       </Container>

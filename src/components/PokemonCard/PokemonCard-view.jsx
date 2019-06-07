@@ -8,7 +8,7 @@ import {
 export default function PokemonCard(props) {
   const { pokemonInfo, handleClick } = props;
   return (
-    <Col xs="8" sm="6" md="4" lg="3" className="my-2 text-center ml-auto mr-auto ml-sm-0 mr-sm-0 ">
+    <Col xs="12" sm="6" md="4" lg="3" className="my-2 text-center px-0 px-sm-3">
       <article>
         <Card className="p-1 cursor-pointer card-style" onClick={() => handleClick(pokemonInfo.id)}>
           <div className="mt-auto mb-auto">

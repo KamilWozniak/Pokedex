@@ -5,7 +5,7 @@ import {
   Col,
   FormGroup,
   Label,
-  Input,
+  CustomInput,
 } from 'reactstrap';
 import './Select-view.scss';
 
@@ -19,7 +19,7 @@ export default function Select(props) {
             <Label for="select" className="m-0">
               <small className="mr-2 font-weight-bold">Pokémons per page: </small>
             </Label>
-            <Input
+            <CustomInput
               type="select"
               bsSize="sm"
               id="select"
@@ -34,7 +34,7 @@ export default function Select(props) {
               <option value="72">72</option>
               <option value="84">84</option>
               <option value="96">96</option>
-            </Input>
+            </CustomInput>
           </FormGroup>
         </div>
       </Col>

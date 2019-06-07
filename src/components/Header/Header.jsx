@@ -5,7 +5,7 @@ import './header.scss';
 
 export default function Header() {
   return (
-    <header>
+    <header className="mt-2 mb-4">
       <Row>
         <Col className="text-center">
           <img

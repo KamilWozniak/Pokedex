@@ -9,7 +9,7 @@ export default function FooterView() {
         <Row>
           <Col className="text-center">
             <p className="pt-3 font-weight-bold text-logoDarkBlue">
-              Pokémon and Pokémon character names are trademarks and property of Nintendo...
+              Pokémon and Pokémon character names are trademarks and property of Nintendo.
             </p>
           </Col>
         </Row>
