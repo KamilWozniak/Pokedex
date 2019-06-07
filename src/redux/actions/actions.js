@@ -2,7 +2,9 @@ import axios from 'axios';
 import * as actionType from './types';
 
 const port = 4000;
-
+// FIXME: global variables UPPERCASE
+// FIXME: 3 stages of API connection
+// FIXME: GLOBAL variable for localhost
 export const getPokemons = (url = '') => (dispatch) => {
   dispatch({ type: actionType.LOADING_ON });
   axios.get(`http://localhost:${port}/pokemon${url}`).then((response) => {
