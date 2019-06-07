@@ -1,8 +1,6 @@
 import React from 'react';
 import { Row, Col, Container } from 'reactstrap';
-
-// FIXME: Increase margin top
-// FIXME: Footer always on bottom
+import './footer.scss';
 
 export default function FooterView() {
   return (

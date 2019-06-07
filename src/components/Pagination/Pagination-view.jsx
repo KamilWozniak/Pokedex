@@ -23,41 +23,41 @@ export default function PaginationView(props) {
   }
   if (numberOfPages > 1) {
     return (
-      <nav>
+      <React.Fragment>
         <Row className="my-5">
           <Col className="d-flex justify-content-center">
-            <Pagination>
-              <PaginationItem disabled={Number(currentPage) === 1}>
-                <PaginationLink
-                  first
-                  onClick={() => handlePageChange(1, itemsOnPage, lastSearch)}
-                />
-              </PaginationItem>
-              <PaginationItem disabled={Number(currentPage) === 1}>
-                <PaginationLink
-                  previous
-                  onClick={() => handlePageChange(currentPage - 1, itemsOnPage, lastSearch)}
-                />
-              </PaginationItem>
+              <Pagination style={{ marginBottom: 0 }}>
+                <PaginationItem disabled={Number(currentPage) === 1}>
+                  <PaginationLink
+                    first
+                    onClick={() => handlePageChange(1, itemsOnPage, lastSearch)}
+                  />
+                </PaginationItem>
+                <PaginationItem disabled={Number(currentPage) === 1}>
+                  <PaginationLink
+                    previous
+                    onClick={() => handlePageChange(currentPage - 1, itemsOnPage, lastSearch)}
+                  />
+                </PaginationItem>
 
-              {handlePages(numberOfPages)}
+                {handlePages(numberOfPages)}
 
-              <PaginationItem disabled={currentPage === numberOfPages}>
-                <PaginationLink
-                  next
-                  onClick={() => handlePageChange(currentPage + 1, itemsOnPage, lastSearch)}
-                />
-              </PaginationItem>
-              <PaginationItem disabled={currentPage === numberOfPages}>
-                <PaginationLink
-                  last
-                  onClick={() => handlePageChange(numberOfPages, itemsOnPage, lastSearch)}
-                />
-              </PaginationItem>
-            </Pagination>
+                <PaginationItem disabled={currentPage === numberOfPages}>
+                  <PaginationLink
+                    next
+                    onClick={() => handlePageChange(currentPage + 1, itemsOnPage, lastSearch)}
+                  />
+                </PaginationItem>
+                <PaginationItem disabled={currentPage === numberOfPages}>
+                  <PaginationLink
+                    last
+                    onClick={() => handlePageChange(numberOfPages, itemsOnPage, lastSearch)}
+                  />
+                </PaginationItem>
+              </Pagination>
           </Col>
         </Row>
-      </nav>
+      </React.Fragment>
     );
   }
   return null;
