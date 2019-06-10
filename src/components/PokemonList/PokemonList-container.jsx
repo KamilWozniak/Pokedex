@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col } from 'reactstrap';
+import { Row } from 'reactstrap';
 import PokemonCard from '../PokemonCard';
-import pokeball from '../../assets/images/pokeball-loading.png';
-import noResultImg from '../../assets/images/no-results.png';
+import Loading from './Components/PokemonListLoading';
+import NoResults from './Components/NoResults';
+import ErrorPage from './Components/ErrorPage';
 
 export default class PokemonListContainer extends Component {
   componentDidMount() {
@@ -13,9 +14,11 @@ export default class PokemonListContainer extends Component {
 
   render() {
     const {
-      pokemons, toggleModal,
+      pokemons,
+      toggleModal,
       getPokemonToModal,
       loading,
+      error,
     } = this.props;
 
     const handleClick = (id) => {
@@ -24,36 +27,22 @@ export default class PokemonListContainer extends Component {
     };
     if (loading) {
       return (
-        <section>
-          <Row className="mt-5 pb-3 ">
-            <Col className="d-flex justify-content-center">
-              <img src={pokeball} alt="pokeball" className="loading-image" />
-            </Col>
-          </Row>
-          <Row>
-            <Col className="d-flex justify-content-center mt-2 mb-5">
-              <h1 className="text-uppercase">loading, please wait</h1>
-            </Col>
-          </Row>
-        </section>
+        <Loading />
       );
     }
-
+    if (error) {
+      return (
+        <ErrorPage />
+      );
+    }
     return (
       <Row className="w-100 ml-auto mr-auto">
-        {pokemons.length > 0 ? (
+        {pokemons.length > 0 && error === false ? (
           pokemons.map(pokemon => (
             <PokemonCard key={pokemon.id} pokemonInfo={pokemon} handleClick={handleClick} />
           ))
         ) : (
-          <section className="w-100">
-            <Row>
-              <Col className="text-center">
-                <img className="no-result mt-3 mb-5" src={noResultImg} alt="no result" />
-                <h3 className="mt-3 mb-5">Psyduck says that there is no such pokemon!</h3>
-              </Col>
-            </Row>
-          </section>
+          <NoResults />
         )}
       </Row>
     );
@@ -64,6 +53,7 @@ PokemonListContainer.propTypes = {
   toggleModal: PropTypes.func.isRequired,
   getPokemonToModal: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
   getPokemons: PropTypes.func.isRequired,
   itemsOnPage: PropTypes.number.isRequired,
 };

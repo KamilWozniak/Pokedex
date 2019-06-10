@@ -16,6 +16,7 @@ function PokemonListRedux(props) {
     loading,
     itemsOnPage,
     getPokemons: fetchPokemons,
+    error,
   } = props;
   return (
     <React.Fragment>
@@ -26,6 +27,7 @@ function PokemonListRedux(props) {
         loading={loading}
         getPokemons={fetchPokemons}
         itemsOnPage={itemsOnPage}
+        error={error}
       />
     </React.Fragment>
   );
@@ -34,6 +36,7 @@ function PokemonListRedux(props) {
 const mapStateToProps = state => ({
   pokemons: state.pokemonReducer.pokemons,
   loading: state.pokemonReducer.loading,
+  error: state.pokemonReducer.error,
   itemsOnPage: state.selectReducer.itemsPerPage,
 });
 
@@ -49,4 +52,5 @@ PokemonListRedux.propTypes = {
   itemsOnPage: PropTypes.number.isRequired,
   getPokemonToModal: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
 };

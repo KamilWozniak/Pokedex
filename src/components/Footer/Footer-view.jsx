@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col, Container } from 'reactstrap';
+import './footer.scss';
 
 export default function FooterView() {
   return (

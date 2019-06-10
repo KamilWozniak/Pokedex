@@ -5,6 +5,7 @@ import {
   CHANGE_PAGE,
   LOADING_OFF,
   LOADING_ON,
+  FETCHING_ERROR,
 } from '../actions/types';
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   total: 0,
   currentPage: 1,
   loading: true,
+  error: false,
 };
 
 const pokemonReducer = (state = initialState, action) => {
@@ -46,11 +48,19 @@ const pokemonReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
+        error: false,
       };
     }
     case LOADING_OFF: {
       return {
         ...state,
+        loading: false,
+      };
+    }
+    case FETCHING_ERROR: {
+      return {
+        ...state,
+        error: true,
         loading: false,
       };
     }
