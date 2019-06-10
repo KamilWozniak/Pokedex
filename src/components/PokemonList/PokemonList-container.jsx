@@ -4,6 +4,7 @@ import { Row } from 'reactstrap';
 import PokemonCard from '../PokemonCard';
 import Loading from './Components/PokemonListLoading';
 import NoResults from './Components/NoResults';
+import ErrorPage from './Components/ErrorPage';
 
 export default class PokemonListContainer extends Component {
   componentDidMount() {
@@ -13,9 +14,11 @@ export default class PokemonListContainer extends Component {
 
   render() {
     const {
-      pokemons, toggleModal,
+      pokemons,
+      toggleModal,
       getPokemonToModal,
       loading,
+      error,
     } = this.props;
 
     const handleClick = (id) => {
@@ -27,9 +30,14 @@ export default class PokemonListContainer extends Component {
         <Loading />
       );
     }
+    if (error) {
+      return (
+        <ErrorPage />
+      );
+    }
     return (
       <Row className="w-100 ml-auto mr-auto">
-        {pokemons.length > 0 ? (
+        {pokemons.length > 0 && error === false ? (
           pokemons.map(pokemon => (
             <PokemonCard key={pokemon.id} pokemonInfo={pokemon} handleClick={handleClick} />
           ))
@@ -45,6 +53,7 @@ PokemonListContainer.propTypes = {
   toggleModal: PropTypes.func.isRequired,
   getPokemonToModal: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
   getPokemons: PropTypes.func.isRequired,
   itemsOnPage: PropTypes.number.isRequired,
 };

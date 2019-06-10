@@ -9,6 +9,7 @@ import {
 import ModalBodyContent from './modalComponents/ModalBody';
 import ModalLoading from './modalComponents/ModalLoading';
 import ModalFooterContent from './modalComponents/ModalFooter';
+import ModalErrorPage from './modalComponents/ModalError';
 
 export default function PokemonModal(props) {
   const {
@@ -20,9 +21,13 @@ export default function PokemonModal(props) {
     handleClickNext,
     handleClickPrev,
     loading,
+    error,
   } = props;
   if (loading) {
     return <ModalLoading toggleModalState={toggleModalState} closeModal={closeModal} />;
+  }
+  if (error) {
+    return <ModalErrorPage toggleModalState={toggleModalState} closeModal={closeModal} />;
   }
   return (
     <aside>
@@ -54,4 +59,5 @@ PokemonModal.propTypes = {
   handleClickNext: PropTypes.func.isRequired,
   handleClickPrev: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
 };

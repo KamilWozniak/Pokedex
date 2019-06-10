@@ -6,6 +6,7 @@ import {
   FILTER_POKEMON,
   LOADING_MODAL_OFF,
   LOADING_MODAL_ON,
+  FETCHING_MODAL_ERROR,
 } from '../actions/types';
 
 const initialState = {
@@ -19,6 +20,7 @@ const initialState = {
   prevEvo: false,
   nextEvo: false,
   loadingModal: false,
+  errorModal: false,
 };
 
 const modalReducer = (state = initialState, action) => {
@@ -57,11 +59,19 @@ const modalReducer = (state = initialState, action) => {
       return {
         ...state,
         loadingModal: true,
+        errorModal: false,
       };
     }
     case LOADING_MODAL_OFF: {
       return {
         ...state,
+        loadingModal: false,
+      };
+    }
+    case FETCHING_MODAL_ERROR: {
+      return {
+        ...state,
+        errorModal: true,
         loadingModal: false,
       };
     }
