@@ -26,7 +26,7 @@ export default function ModalContainer(props) {
 
   const handleClickPrev = (prevEvoArr) => {
     if (prevState) {
-      const { num } = prevEvoArr[0];
+      const { num } = prevEvoArr[prevEvoArr.length - 1];
       filterPokemon(num);
     }
     return null;
