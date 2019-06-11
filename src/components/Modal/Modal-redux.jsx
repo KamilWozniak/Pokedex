@@ -21,6 +21,7 @@ function ModalRedux(props) {
     filterPokemon: fetchNewModalPokemon,
     loading,
     error,
+    evolutions,
   } = props;
   return (
     <React.Fragment>
@@ -35,6 +36,7 @@ function ModalRedux(props) {
         filterPokemon={fetchNewModalPokemon}
         loading={loading}
         error={error}
+        evolutions={evolutions}
       />
     </React.Fragment>
   );
@@ -46,6 +48,7 @@ const mapStateToProps = state => ({
   nextState: state.modalReducer.nextEvo,
   loading: state.modalReducer.loadingModal,
   error: state.modalReducer.errorModal,
+  evolutions: state.modalReducer.evolutions,
 });
 
 export default connect(
@@ -69,4 +72,5 @@ ModalRedux.propTypes = {
   filterPokemon: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.bool.isRequired,
+  evolutions: PropTypes.instanceOf(Array).isRequired,
 };

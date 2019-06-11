@@ -12,6 +12,7 @@ export default function ModalContainer(props) {
     filterPokemon,
     loading,
     error,
+    evolutions,
   } = props;
 
   const closeModal = () => toggleModalAction(false);
@@ -44,6 +45,7 @@ export default function ModalContainer(props) {
         handleClickPrev={handleClickPrev}
         loading={loading}
         error={error}
+        evolutions={evolutions}
       />
     </React.Fragment>
   );
@@ -58,4 +60,5 @@ ModalContainer.propTypes = {
   filterPokemon: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.bool.isRequired,
+  evolutions: PropTypes.instanceOf(Array).isRequired,
 };

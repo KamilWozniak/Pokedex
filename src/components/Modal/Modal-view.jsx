@@ -22,6 +22,7 @@ export default function PokemonModal(props) {
     handleClickPrev,
     loading,
     error,
+    evolutions,
   } = props;
   if (loading) {
     return <ModalLoading toggleModalState={toggleModalState} closeModal={closeModal} />;
@@ -43,6 +44,7 @@ export default function PokemonModal(props) {
             pokemonData={pokemonData}
             handleClickNext={handleClickNext}
             handleClickPrev={handleClickPrev}
+            evolutions={evolutions}
           />
         </ModalFooter>
       </Modal>
@@ -60,4 +62,5 @@ PokemonModal.propTypes = {
   handleClickPrev: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.bool.isRequired,
+  evolutions: PropTypes.instanceOf(Array).isRequired,
 };

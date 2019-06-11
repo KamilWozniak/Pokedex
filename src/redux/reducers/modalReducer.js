@@ -7,6 +7,7 @@ import {
   LOADING_MODAL_OFF,
   LOADING_MODAL_ON,
   FETCHING_MODAL_ERROR,
+  GET_MODAL_EVO,
 } from '../actions/types';
 
 const initialState = {
@@ -21,6 +22,7 @@ const initialState = {
   nextEvo: false,
   loadingModal: false,
   errorModal: false,
+  evolutions: [],
 };
 
 const modalReducer = (state = initialState, action) => {
@@ -73,6 +75,12 @@ const modalReducer = (state = initialState, action) => {
         ...state,
         errorModal: true,
         loadingModal: false,
+      };
+    }
+    case GET_MODAL_EVO: {
+      return {
+        ...state,
+        evolutions: action.payload,
       };
     }
     default:

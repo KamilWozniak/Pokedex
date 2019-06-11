@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  handleMultipliers,
   handleNextEvo,
   handlePrevEvo,
 } from './modalDisplayFunctions';
@@ -21,12 +20,14 @@ export default function ModalBody(props) {
       <SingleProperty property={pokemonData.height} propertyName="height" />
       <SingleProperty property={pokemonData.weight} propertyName="weight" />
       <SingleProperty property={pokemonData.candy} propertyName="candy type" />
-      {pokemonData.candy_count ? <SingleProperty property={pokemonData.candy_count} propertyName="number of candys" /> : null}
-      <SingleProperty property={pokemonData.egg} propertyName="egg" />
-      <SingleProperty property={pokemonData.spawn_chance} propertyName="spawn chance" />
-      <SingleProperty property={pokemonData.avg_spawns} propertyName="average spawns" />
-      <SingleProperty property={pokemonData.spawn_time} propertyName="spawn time" />
-      {handleMultipliers(pokemonData.multipliers)}
+      {/* {pokemonData.candy_count ? <SingleProperty */}
+      {/* property={pokemonData.candy_count} */}
+      {/* propertyName="number of candys" /> : null} */}
+      {/* <SingleProperty property={pokemonData.egg} propertyName="egg" /> */}
+      {/* <SingleProperty property={pokemonData.spawn_chance} propertyName="spawn chance" /> */}
+      {/* <SingleProperty property={pokemonData.avg_spawns} propertyName="average spawns" /> */}
+      {/* <SingleProperty property={pokemonData.spawn_time} propertyName="spawn time" /> */}
+      {/* {handleMultipliers(pokemonData.multipliers)} */}
       <BadgedProperty property={pokemonData.weaknesses} propertyName="weaknesses" />
       {handlePrevEvo(pokemonData.prev_evolution)}
       {handleNextEvo(pokemonData.next_evolution)}
