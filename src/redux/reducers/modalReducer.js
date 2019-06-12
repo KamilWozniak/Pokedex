@@ -3,7 +3,6 @@ import {
   GET_MODAL_POKEMON,
   CHANGE_PREV,
   CHANGE_NEXT,
-  FILTER_POKEMON,
   LOADING_MODAL_OFF,
   LOADING_MODAL_ON,
   FETCHING_MODAL_ERROR,
@@ -39,24 +38,19 @@ const modalReducer = (state = initialState, action) => {
         pokemonInModal: action.payload,
       };
     }
-    case CHANGE_PREV: {
+    case CHANGE_PREV: { // not used since number of properties in modal decreased
       return {
         ...state,
         prevEvo: action.payload,
       };
     }
-    case CHANGE_NEXT: {
+    case CHANGE_NEXT: { // not used since number of properties in modal decreased
       return {
         ...state,
         nextEvo: action.payload,
       };
     }
-    case FILTER_POKEMON: {
-      return {
-        ...state,
-        pokemonInModal: action.payload,
-      };
-    }
+
     case LOADING_MODAL_ON: {
       return {
         ...state,
@@ -70,7 +64,7 @@ const modalReducer = (state = initialState, action) => {
         loadingModal: false,
       };
     }
-    case FETCHING_MODAL_ERROR: {
+    case FETCHING_MODAL_ERROR: { // not used anymore
       return {
         ...state,
         errorModal: true,

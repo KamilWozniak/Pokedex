@@ -21,11 +21,6 @@ export default class PokemonListContainer extends Component {
       error,
     } = this.props;
 
-    // const handleClick = (id) => {
-    //   toggleModal(true);
-    //   getPokemonToModal(id);
-    // };
-
     const handleClick = (pokemonData) => {
       toggleModal(true);
       getPokemonToModal(pokemonData);

@@ -4,9 +4,7 @@ import { connect } from 'react-redux';
 import Modal from './Modal-container';
 import {
   toggleModal,
-  onPrevChange,
-  onNextChange,
-  filterPokemon,
+  getPokemonToModal,
 } from '../../redux/actions/actions';
 
 function ModalRedux(props) {
@@ -14,14 +12,10 @@ function ModalRedux(props) {
     toggleModalState,
     toggleModal: toggleModalAction,
     pokemonData,
-    onPrevChange: togglePrev,
-    prevState,
-    onNextChange: toggleNext,
-    nextState,
-    filterPokemon: fetchNewModalPokemon,
     loading,
     error,
     evolutions,
+    getPokemonToModal: getModalPokemon,
   } = props;
   return (
     <React.Fragment>
@@ -29,14 +23,10 @@ function ModalRedux(props) {
         toggleModalState={toggleModalState}
         toggleModalAction={toggleModalAction}
         pokemonData={pokemonData}
-        onPrevChange={togglePrev}
-        prevState={prevState}
-        onNextChange={toggleNext}
-        nextState={nextState}
-        filterPokemon={fetchNewModalPokemon}
         loading={loading}
         error={error}
         evolutions={evolutions}
+        getPokemonToModal={getModalPokemon}
       />
     </React.Fragment>
   );
@@ -55,22 +45,17 @@ export default connect(
   mapStateToProps,
   {
     toggleModal,
-    onPrevChange,
-    onNextChange,
-    filterPokemon,
+    getPokemonToModal,
   },
 )(ModalRedux);
 
 ModalRedux.propTypes = {
   toggleModalState: PropTypes.bool.isRequired,
   toggleModal: PropTypes.func.isRequired,
-  onPrevChange: PropTypes.func.isRequired,
-  onNextChange: PropTypes.func.isRequired,
   pokemonData: PropTypes.instanceOf(Object).isRequired,
-  prevState: PropTypes.bool.isRequired,
-  nextState: PropTypes.bool.isRequired,
-  filterPokemon: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.bool.isRequired,
   evolutions: PropTypes.instanceOf(Array).isRequired,
+  getPokemonToModal: PropTypes.func.isRequired,
+
 };

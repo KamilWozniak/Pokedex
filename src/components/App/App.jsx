@@ -9,6 +9,9 @@ import Pagination from '../Pagination';
 import Modal from '../Modal';
 import Footer from '../Footer';
 
+// TODO: implement react router to pages
+// TODO: read react router documentation
+
 function App() {
   return (
     <React.Fragment>
