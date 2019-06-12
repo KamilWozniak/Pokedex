@@ -55,3 +55,12 @@
 .modal-loading-image {
   @include loading-image(15vmin);
 }
+
+.modal-width{
+  max-width: 540px;
+}
+
+.evoButton{
+  background-color: transparent;
+  border: none
+}

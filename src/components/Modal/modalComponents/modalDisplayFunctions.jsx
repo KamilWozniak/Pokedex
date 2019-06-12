@@ -5,7 +5,7 @@ import { onPrevChange, onNextChange } from '../../../redux/actions/actions';
 import store from '../../../redux/store';
 import SingleProperty from './SingleProperty';
 import ComplexProperty from './ComplexProperty';
-
+// #######################33 All file is not used since number of properties in modal was decreased
 export const handleMultipliers = (data) => {
   if (data === null) {
     return null;
@@ -51,7 +51,8 @@ export const handleNextEvo = (data) => {
       <SingleProperty property="None" propertyName="next evolutions" />
     );
   }
-  store.dispatch(onNextChange(true));
+  store.dispatch(onNextChange(true)); // this says to redux store that THERE IS Next evo.
+  // it was required for disabling next_evo button
   return (
     <ComplexProperty data={data} title="next evolutions" />
   );

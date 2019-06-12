@@ -3,10 +3,10 @@ import {
   GET_MODAL_POKEMON,
   CHANGE_PREV,
   CHANGE_NEXT,
-  FILTER_POKEMON,
   LOADING_MODAL_OFF,
   LOADING_MODAL_ON,
   FETCHING_MODAL_ERROR,
+  GET_MODAL_EVO,
 } from '../actions/types';
 
 const initialState = {
@@ -21,6 +21,7 @@ const initialState = {
   nextEvo: false,
   loadingModal: false,
   errorModal: false,
+  evolutions: [],
 };
 
 const modalReducer = (state = initialState, action) => {
@@ -37,24 +38,19 @@ const modalReducer = (state = initialState, action) => {
         pokemonInModal: action.payload,
       };
     }
-    case CHANGE_PREV: {
+    case CHANGE_PREV: { // not used since number of properties in modal decreased
       return {
         ...state,
         prevEvo: action.payload,
       };
     }
-    case CHANGE_NEXT: {
+    case CHANGE_NEXT: { // not used since number of properties in modal decreased
       return {
         ...state,
         nextEvo: action.payload,
       };
     }
-    case FILTER_POKEMON: {
-      return {
-        ...state,
-        pokemonInModal: action.payload,
-      };
-    }
+
     case LOADING_MODAL_ON: {
       return {
         ...state,
@@ -68,11 +64,17 @@ const modalReducer = (state = initialState, action) => {
         loadingModal: false,
       };
     }
-    case FETCHING_MODAL_ERROR: {
+    case FETCHING_MODAL_ERROR: { // not used anymore
       return {
         ...state,
         errorModal: true,
         loadingModal: false,
+      };
+    }
+    case GET_MODAL_EVO: {
+      return {
+        ...state,
+        evolutions: action.payload,
       };
     }
     default:
