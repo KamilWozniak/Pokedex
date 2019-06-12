@@ -18,7 +18,7 @@ export default function ModalFooter(props) {
     return null;
   }
 
-  return <p>We could not download evolutions</p>; // TODO: style this element
+  return <h3 className="align-self-center text-center mb-4 text-danger">We could not download evolutions.</h3>;
 }
 
 ModalFooter.propTypes = {

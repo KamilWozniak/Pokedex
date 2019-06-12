@@ -29,7 +29,7 @@ export default function PokemonModal(props) {
   }
   return (
     <aside>
-      <Modal isOpen={toggleModalState}>
+      <Modal isOpen={toggleModalState} className="modal-width">
         <ModalHeader toggle={closeModal} className="border border-white" />
         <ModalBody>
           <ModalBodyContent pokemonData={pokemonData} />
