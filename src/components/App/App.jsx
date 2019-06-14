@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import { Container } from 'reactstrap';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Header from '../Header';
 import Search from '../Search';
 import Select from '../Select';
@@ -9,12 +10,9 @@ import Pagination from '../Pagination';
 import Modal from '../Modal';
 import Footer from '../Footer';
 
-// TODO: implement react router to pages
-// TODO: read react router documentation
-
 function App() {
   return (
-    <React.Fragment>
+    <Router>
       <div className="body-min-height">
         <Container className="p-xs-1 p-sm-4 pb-0 mb-0">
           <Header />
@@ -28,8 +26,11 @@ function App() {
       </div>
       <Footer />
       <Modal />
-    </React.Fragment>
+    </Router>
   );
 }
 
 export default App;
+
+
+// FIXME: stay on the same page after refreshing

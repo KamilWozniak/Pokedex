@@ -2,6 +2,8 @@ import React from 'react';
 import uuid from 'uuid';
 import { PaginationItem, PaginationLink } from 'reactstrap';
 import { ITEMS_TO_DISPLAY_WHEN_IN_MIDDLE } from './paginationControll';
+import { POKEMON_PAGES_URL } from "../../../URLs";
+import { Link } from 'react-router-dom';
 
 const handleMiddlePages = (
   pages,
@@ -22,12 +24,16 @@ const handleMiddlePages = (
           return (
             <React.Fragment key={uuid.v4()}>
               <PaginationItem active={id + 1 === currentPage} key={uuid.v4()}>
-                <PaginationLink
-                  onClick={() => handlePageChange(id + 1, itemsOnPage, lastSearch)}
-                  key={uuid.v4()}
-                >
-                  {id + 1}
-                </PaginationLink>
+                <Link className="pagination-router-link-inner" to={`${POKEMON_PAGES_URL}${id + 1}`}>
+                  <PaginationLink
+                    onClick={() => handlePageChange(id + 1, itemsOnPage, lastSearch)}
+                    key={uuid.v4()}
+                  >
+                    <span className="font-weight-bold">
+                      {id + 1}
+                    </span>
+                  </PaginationLink>
+                </Link>
               </PaginationItem>
             </React.Fragment>
           );
