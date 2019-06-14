@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import Search from './Search-view';
 import {
   updateSearch,
@@ -15,6 +16,7 @@ function SearchRedux(props) {
     onSearchSubmit: handleSearchSubmit,
     getPokemons: fetchPokemons,
     itemsOnPage,
+    history,
   } = props;
 
   const handleChange = (e) => {
@@ -28,6 +30,7 @@ function SearchRedux(props) {
     if (window.scrollY < 50) {
       window.scrollTo({ top: 200, left: 0, behavior: 'smooth' });
     }
+    history.push('1');
   };
 
   return (
@@ -42,14 +45,14 @@ const mapStateToProps = state => ({
   itemsOnPage: state.selectReducer.itemsPerPage,
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   {
     updateSearch,
     onSearchSubmit,
     getPokemons,
   },
-)(SearchRedux);
+)(SearchRedux));
 
 SearchRedux.propTypes = {
   searchValue: PropTypes.string.isRequired,
@@ -57,4 +60,5 @@ SearchRedux.propTypes = {
   onSearchSubmit: PropTypes.func.isRequired,
   getPokemons: PropTypes.func.isRequired,
   itemsOnPage: PropTypes.number.isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
