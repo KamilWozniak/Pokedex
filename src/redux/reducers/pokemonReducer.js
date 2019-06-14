@@ -6,6 +6,7 @@ import {
   LOADING_OFF,
   LOADING_ON,
   FETCHING_ERROR,
+  SET_PAGE,
 } from '../actions/types';
 
 const initialState = {
@@ -62,6 +63,12 @@ const pokemonReducer = (state = initialState, action) => {
         ...state,
         error: true,
         loading: false,
+      };
+    }
+    case SET_PAGE: {
+      return {
+        ...state,
+        currentPage: action.payload,
       };
     }
     default:

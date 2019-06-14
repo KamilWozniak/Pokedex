@@ -8,8 +8,11 @@ import ErrorPage from './Components/ErrorPage';
 
 export default class PokemonListContainer extends Component {
   componentDidMount() {
-    const { getPokemons, itemsOnPage } = this.props;
-    getPokemons(`/?_page=1&_limit=${itemsOnPage}`);
+    const {
+      getPokemons, itemsOnPage, match, setPage,
+    } = this.props;
+    getPokemons(`/?_page=${match.params.pageNumber}&_limit=${itemsOnPage}`);
+    setPage(Number(match.params.pageNumber));
   }
 
   render() {
@@ -56,4 +59,6 @@ PokemonListContainer.propTypes = {
   error: PropTypes.bool.isRequired,
   getPokemons: PropTypes.func.isRequired,
   itemsOnPage: PropTypes.number.isRequired,
+  match: PropTypes.instanceOf(Object).isRequired,
+  setPage: PropTypes.func.isRequired,
 };

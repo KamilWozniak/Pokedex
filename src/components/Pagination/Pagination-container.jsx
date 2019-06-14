@@ -10,8 +10,7 @@ import {
   BOUNDARY_OF_NORMAL_PAGINATION,
 } from './components/paginationControll';
 
-
-export default function PaginationContainer(props) {
+function PaginationContainer(props) {
   const {
     total,
     itemsOnPage,
@@ -86,6 +85,8 @@ export default function PaginationContainer(props) {
     </React.Fragment>
   );
 }
+
+export default PaginationContainer;
 
 PaginationContainer.propTypes = {
   total: PropTypes.number.isRequired,
