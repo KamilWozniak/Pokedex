@@ -10,7 +10,7 @@ function SelectRedux(props) {
     changeItemsNumber: changeItemsNumberAction,
     lastSearch,
     getPokemons: fetchPokemons,
-    history,
+    // history,
   } = props;
 
   const handleChange = (e) => {
@@ -20,7 +20,6 @@ function SelectRedux(props) {
     } else {
       fetchPokemons(`/?q=${lastSearch}&_page=1&_limit=${e.target.value}`);
     }
-    history.push('1');
   };
 
   return (
@@ -43,5 +42,5 @@ SelectRedux.propTypes = {
   changeItemsNumber: PropTypes.func.isRequired,
   getPokemons: PropTypes.func.isRequired,
   lastSearch: PropTypes.string.isRequired,
-  history: PropTypes.instanceOf(Object).isRequired,
+  // history: PropTypes.instanceOf(Object).isRequired,
 };

@@ -19,7 +19,7 @@ function PokemonListRedux(props) {
     itemsOnPage,
     getPokemons: fetchPokemons,
     error,
-    match,
+    // match,
     location,
     setPage: setCurrPage,
     updateSearchValue: setSearchValue,
@@ -35,7 +35,7 @@ function PokemonListRedux(props) {
         getPokemons={fetchPokemons}
         itemsOnPage={itemsOnPage}
         error={error}
-        match={match}
+        // match={match}
         setPage={setCurrPage}
         location={location}
         updateSearchValue={setSearchValue}
@@ -64,7 +64,7 @@ PokemonListRedux.propTypes = {
   getPokemonToModal: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.bool.isRequired,
-  match: PropTypes.instanceOf(Object).isRequired,
+  // match: PropTypes.instanceOf(Object).isRequired,
   location: PropTypes.instanceOf(Object).isRequired,
   setPage: PropTypes.func.isRequired,
   updateSearchValue: PropTypes.func.isRequired,

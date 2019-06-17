@@ -9,7 +9,7 @@ import PokemonList from '../PokemonList';
 import Pagination from '../Pagination';
 import Modal from '../Modal';
 import Footer from '../Footer';
-import { POKEMON_PAGES_URL } from '../../URLs';
+import { POKEMON_LIST_URL } from '../../URLs';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
           <Select />
         </Container>
         <Container fluid className="px-xs-1 px-sm-4 mt-0 mb-5 pt-0">
-          <Route path={`${POKEMON_PAGES_URL}:pageNumber`} component={PokemonList} />
+          <Route path={`${POKEMON_LIST_URL}`} component={PokemonList} />
           <Pagination />
         </Container>
       </div>

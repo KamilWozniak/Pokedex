@@ -10,21 +10,24 @@ import ErrorPage from './Components/ErrorPage';
 export default class PokemonListContainer extends Component {
   componentDidMount() {
     const {
-      getPokemons, itemsOnPage, match, setPage, location, updateSearchValue,
+      getPokemons, itemsOnPage, setPage, location, updateSearchValue,
     } = this.props;
+
     const searchQueryValues = queryString.parse(location.search);
 
-    if (!searchQueryValues.search) {
-      getPokemons(`/?_page=${match.params.pageNumber}&_limit=${itemsOnPage}`);
+    if (!searchQueryValues.page) {
+      console.log('there were no page prop');
+      setPage(1);
+    } else {
+      console.log('there were props');
+      setPage(Number(searchQueryValues.page));
     }
-    setPage(Number(match.params.pageNumber));
-    // FIXME: fix page changing from URL when there is searchQuery in ULR
-    // TODO: add historyPush "searchquery" to the URL when pagination page is clicked
 
-    if (searchQueryValues.search) {
-      updateSearchValue(searchQueryValues.search);
-      getPokemons(`?q=${searchQueryValues.search}&_page=1&_limit=${itemsOnPage}`);
-    }
+    if (searchQueryValues.search) updateSearchValue(searchQueryValues.search);
+
+    getPokemons(`?q=${searchQueryValues.search ? searchQueryValues.search : ''}
+&_page=${searchQueryValues.page ? searchQueryValues.page : 1}
+&_limit=${itemsOnPage}`);
   }
 
   render() {
@@ -34,10 +37,13 @@ export default class PokemonListContainer extends Component {
       getPokemonToModal,
       loading,
       error,
-      setPage,
-      match,
+      // setPage,
+      // match,
+      // location,
     } = this.props;
-    setPage(Number(match.params.pageNumber));
+    // const searchQueryValues = queryString.parse(location.search);
+    // setPage(Number(match.params.pageNumber));
+    // setPage(Number(searchQueryValues.page)); //TODO: why this need to be present?
 
     const handleClick = (pokemonData) => {
       toggleModal(true);
@@ -74,7 +80,7 @@ PokemonListContainer.propTypes = {
   error: PropTypes.bool.isRequired,
   getPokemons: PropTypes.func.isRequired,
   itemsOnPage: PropTypes.number.isRequired,
-  match: PropTypes.instanceOf(Object).isRequired,
+  // match: PropTypes.instanceOf(Object).isRequired,
   location: PropTypes.instanceOf(Object).isRequired,
   setPage: PropTypes.func.isRequired,
   updateSearchValue: PropTypes.func.isRequired,

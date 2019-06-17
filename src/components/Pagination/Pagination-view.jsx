@@ -9,8 +9,8 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './pagination.scss';
-import { POKEMON_PAGES_URL } from '../../URLs';
 import '@fortawesome/fontawesome-free/css/all.css';
+import queryString from 'query-string';
 
 export default function PaginationView(props) {
   const {
@@ -21,11 +21,13 @@ export default function PaginationView(props) {
     handlePageChange,
     currentPage,
     loading,
+    location,
   } = props;
   if (loading) {
     return null;
   }
   if (numberOfPages > 1) {
+    const searchQueryValues = queryString.parse(location.search);
     return (
       <React.Fragment>
         <Row className="my-5">
@@ -40,7 +42,8 @@ export default function PaginationView(props) {
 
                   <Link
                     className="pagination-router-link-edges"
-                    to={`${POKEMON_PAGES_URL}${1}`}
+                    to={`${location.pathname}?${searchQueryValues.search
+                      ? `search=${searchQueryValues.search}` : ''}&page=1`}
                   >
                     <i className="fas fa-angle-double-left" />
                   </Link>
@@ -52,7 +55,11 @@ export default function PaginationView(props) {
                   onClick={() => handlePageChange(currentPage - 1, itemsOnPage, lastSearch)}
                   className="pagination-link-style"
                 >
-                  <Link className="pagination-router-link-edges" to={`${POKEMON_PAGES_URL}${currentPage - 1}`}>
+                  <Link
+                    className="pagination-router-link-edges"
+                    to={`${location.pathname}?${searchQueryValues.search
+                      ? `search=${searchQueryValues.search}` : ''}&page=${currentPage - 1}`}
+                  >
                     <i className="fas fa-angle-left" />
                   </Link>
                 </PaginationLink>
@@ -66,7 +73,11 @@ export default function PaginationView(props) {
                   onClick={() => handlePageChange(currentPage + 1, itemsOnPage, lastSearch)}
                   className="pagination-link-style"
                 >
-                  <Link className="pagination-router-link-edges" to={`${POKEMON_PAGES_URL}${currentPage + 1}`}>
+                  <Link
+                    className="pagination-router-link-edges"
+                    to={`${location.pathname}?${searchQueryValues.search
+                      ? `search=${searchQueryValues.search}` : ''}&page=${currentPage + 1}`}
+                  >
                     <i className="fas fa-angle-right" />
                   </Link>
                 </PaginationLink>
@@ -77,7 +88,11 @@ export default function PaginationView(props) {
                   onClick={() => handlePageChange(numberOfPages, itemsOnPage, lastSearch)}
                   className="pagination-link-style"
                 >
-                  <Link className="pagination-router-link-edges" to={`${POKEMON_PAGES_URL}${numberOfPages}`}>
+                  <Link
+                    className="pagination-router-link-edges"
+                    to={`${location.pathname}?${searchQueryValues.search
+                      ? `search=${searchQueryValues.search}` : ''}&page=${numberOfPages}`}
+                  >
                     <i className="fas fa-angle-double-right" />
                   </Link>
                 </PaginationLink>
@@ -98,4 +113,5 @@ PaginationView.propTypes = {
   handlePageChange: PropTypes.func.isRequired,
   currentPage: PropTypes.number.isRequired,
   loading: PropTypes.bool.isRequired,
+  location: PropTypes.instanceOf(Object).isRequired,
 };

@@ -17,6 +17,7 @@ function SearchRedux(props) {
     getPokemons: fetchPokemons,
     itemsOnPage,
     history,
+    location,
   } = props;
 
   const handleChange = (e) => {
@@ -30,9 +31,10 @@ function SearchRedux(props) {
     if (window.scrollY < 50) {
       window.scrollTo({ top: 200, left: 0, behavior: 'smooth' });
     }
-    history.push('1');
     if (searchValue) {
       history.push(`?search=${searchValue}`);
+    } else {
+      history.push(location.pathname);
     }
   };
 
@@ -64,4 +66,5 @@ SearchRedux.propTypes = {
   getPokemons: PropTypes.func.isRequired,
   itemsOnPage: PropTypes.number.isRequired,
   history: PropTypes.instanceOf(Object).isRequired,
+  location: PropTypes.instanceOf(Object).isRequired,
 };
