@@ -1,1 +1,1 @@
-export const POKEMON_PAGES_URL = '/pokemons/';
+export const POKEMON_PAGES_URL = '/pokemons/page/';

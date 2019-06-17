@@ -31,6 +31,9 @@ function SearchRedux(props) {
       window.scrollTo({ top: 200, left: 0, behavior: 'smooth' });
     }
     history.push('1');
+    if (searchValue) {
+      history.push(`?search=${searchValue}`);
+    }
   };
 
   return (

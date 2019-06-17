@@ -88,3 +88,8 @@ export const onNextChange = val => (dispatch) => { // not used since number of p
 export const setPage = page => (dispatch) => {
   dispatch({ type: actionType.SET_PAGE, payload: page });
 };
+
+
+export const updateSearchValue = value => (dispatch) => {
+  dispatch({ type: actionType.SET_SEARCH_VALUE, payload: value });
+};
