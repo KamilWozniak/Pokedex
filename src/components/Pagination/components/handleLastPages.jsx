@@ -29,7 +29,6 @@ const handleLastPages = (
                 <PaginationItem active={id + 1 === currentPage} key={uuid.v4()}>
                   <Link
                     className="pagination-router-link-inner"
-                    // to={`${POKEMON_PAGES_URL}${id + 1}`}
                     to={`${location.pathname}?${searchQueryValues.search
                       ? `search=${searchQueryValues.search}` : ''}&page=${id + 1}`}
                   >

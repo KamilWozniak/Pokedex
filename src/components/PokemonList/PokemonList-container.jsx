@@ -16,10 +16,8 @@ export default class PokemonListContainer extends Component {
     const searchQueryValues = queryString.parse(location.search);
 
     if (!searchQueryValues.page) {
-      console.log('there were no page prop');
       setPage(1);
     } else {
-      console.log('there were props');
       setPage(Number(searchQueryValues.page));
     }
 
@@ -37,13 +35,7 @@ export default class PokemonListContainer extends Component {
       getPokemonToModal,
       loading,
       error,
-      // setPage,
-      // match,
-      // location,
     } = this.props;
-    // const searchQueryValues = queryString.parse(location.search);
-    // setPage(Number(match.params.pageNumber));
-    // setPage(Number(searchQueryValues.page)); //TODO: why this need to be present?
 
     const handleClick = (pokemonData) => {
       toggleModal(true);

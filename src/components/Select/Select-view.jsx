@@ -25,7 +25,7 @@ export default function Select(props) {
               bsSize="sm"
               id="select"
               className="select-max-width cursor-pointer"
-              onChange={handleChange}
+              onChange={handleChange}  // TODO: clicking select sets page URL to one
             >
               <option value="12">12</option>
               <option value="24">24</option>

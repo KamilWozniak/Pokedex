@@ -1,1 +1,1 @@
-export const POKEMON_LIST_URL = '';
+export const POKEMON_LIST_URL = '/pokemons/';
