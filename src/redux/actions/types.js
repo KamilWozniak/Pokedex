@@ -14,3 +14,5 @@ export const LOADING_MODAL_OFF = 'LOADING_MODAL_OFF';
 export const FETCHING_ERROR = 'FETCHING_ERROR'; // not used anymore
 export const FETCHING_MODAL_ERROR = 'FETCHING_MODAL_ERROR';
 export const GET_MODAL_EVO = 'GET_MODAL_EVO';
+export const SET_PAGE = 'SET_PAGE';
+export const SET_SEARCH_VALUE = 'SET_SEARCH_VALUE';

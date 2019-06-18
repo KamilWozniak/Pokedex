@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 import PaginationView from './Pagination-view';
 import createNormalPagination from './components/createNormalPagination';
 import handleFirstPages from './components/handleFirstPages';
@@ -10,8 +11,7 @@ import {
   BOUNDARY_OF_NORMAL_PAGINATION,
 } from './components/paginationControll';
 
-
-export default function PaginationContainer(props) {
+function PaginationContainer(props) {
   const {
     total,
     itemsOnPage,
@@ -19,8 +19,8 @@ export default function PaginationContainer(props) {
     lastSearch,
     currentPage,
     loading,
+    location,
   } = props;
-
   const numberOfPages = Math.ceil(total / itemsOnPage);
 
   const handlePageChange = (pageNumber, itemsPerPage, query) => {
@@ -36,19 +36,23 @@ export default function PaginationContainer(props) {
         currentPage,
         itemsOnPage,
         lastSearch,
+        location,
       );
     }
     if (pages > BOUNDARY_OF_NORMAL_PAGINATION
       && currentPage <= ITEMS_TO_ACTIVATE_BOTH_DOTTS) {
+
       return handleFirstPages(
         currentPage,
         handlePageChange,
         itemsOnPage,
         lastSearch,
+        location,
       );
     }
     if (pages > BOUNDARY_OF_NORMAL_PAGINATION
       && currentPage > numberOfPages - ITEMS_TO_ACTIVATE_BOTH_DOTTS) {
+
       return handleLastPages(
         pages,
         numberOfPages,
@@ -56,17 +60,20 @@ export default function PaginationContainer(props) {
         handlePageChange,
         itemsOnPage,
         lastSearch,
+        location,
       );
     }
     if (pages > BOUNDARY_OF_NORMAL_PAGINATION
       && currentPage > ITEMS_TO_ACTIVATE_BOTH_DOTTS
       && currentPage <= numberOfPages - ITEMS_TO_ACTIVATE_BOTH_DOTTS) {
+
       return handleMiddlePages(
         pages,
         currentPage,
         handlePageChange,
         itemsOnPage,
         lastSearch,
+        location,
       );
     }
     return null;
@@ -82,10 +89,13 @@ export default function PaginationContainer(props) {
         handlePageChange={handlePageChange}
         currentPage={currentPage}
         loading={loading}
+        location={location}
       />
     </React.Fragment>
   );
 }
+
+export default withRouter(PaginationContainer);
 
 PaginationContainer.propTypes = {
   total: PropTypes.number.isRequired,
@@ -94,4 +104,5 @@ PaginationContainer.propTypes = {
   lastSearch: PropTypes.string.isRequired,
   currentPage: PropTypes.number.isRequired,
   loading: PropTypes.bool.isRequired,
+  location: PropTypes.instanceOf(Object).isRequired,
 };

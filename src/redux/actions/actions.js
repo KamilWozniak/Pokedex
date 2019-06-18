@@ -84,3 +84,12 @@ export const onPrevChange = val => (dispatch) => { // not used since number of p
 export const onNextChange = val => (dispatch) => { // not used since number of properties in modal decreased
   dispatch({ type: actionType.CHANGE_NEXT, payload: val });
 };
+
+export const setPage = page => (dispatch) => {
+  dispatch({ type: actionType.SET_PAGE, payload: page });
+};
+
+
+export const updateSearchValue = value => (dispatch) => {
+  dispatch({ type: actionType.SET_SEARCH_VALUE, payload: value });
+};

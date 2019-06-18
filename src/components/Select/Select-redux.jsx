@@ -1,15 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import Select from './Select-view';
 import { changeItemsNumber, getPokemons } from '../../redux/actions/actions';
+import queryString from 'query-string';
 
 function SelectRedux(props) {
   const {
     changeItemsNumber: changeItemsNumberAction,
     lastSearch,
     getPokemons: fetchPokemons,
+    location,
+    history,
   } = props;
+
+  const searchQueryValues = queryString.parse(location.search);
 
   const handleChange = (e) => {
     changeItemsNumberAction(e.target.value);
@@ -17,6 +23,7 @@ function SelectRedux(props) {
       fetchPokemons(`/?_page=1&_limit=${e.target.value}`);
     } else {
       fetchPokemons(`/?q=${lastSearch}&_page=1&_limit=${e.target.value}`);
+      history.push(`${location.pathname}?search=${searchQueryValues.search}&page=1`);
     }
   };
 
@@ -31,13 +38,15 @@ const mapStateToProps = state => ({
   lastSearch: state.searchReducer.lastSearched,
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   { changeItemsNumber, getPokemons },
-)(SelectRedux);
+)(SelectRedux));
 
 SelectRedux.propTypes = {
   changeItemsNumber: PropTypes.func.isRequired,
   getPokemons: PropTypes.func.isRequired,
   lastSearch: PropTypes.string.isRequired,
+  location: PropTypes.instanceOf(Object).isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Row } from 'reactstrap';
+import queryString from 'query-string';
 import PokemonCard from '../PokemonCard';
 import Loading from './Components/PokemonListLoading';
 import NoResults from './Components/NoResults';
@@ -8,8 +9,23 @@ import ErrorPage from './Components/ErrorPage';
 
 export default class PokemonListContainer extends Component {
   componentDidMount() {
-    const { getPokemons, itemsOnPage } = this.props;
-    getPokemons(`/?_page=1&_limit=${itemsOnPage}`);
+    const {
+      getPokemons, itemsOnPage, setPage, location, updateSearchValue,
+    } = this.props;
+
+    const searchQueryValues = queryString.parse(location.search);
+
+    if (!searchQueryValues.page) {
+      setPage(1);
+    } else {
+      setPage(Number(searchQueryValues.page));
+    }
+
+    if (searchQueryValues.search) updateSearchValue(searchQueryValues.search);
+
+    getPokemons(`?q=${searchQueryValues.search ? searchQueryValues.search : ''}
+&_page=${searchQueryValues.page ? searchQueryValues.page : 1}
+&_limit=${itemsOnPage}`);
   }
 
   render() {
@@ -56,4 +72,8 @@ PokemonListContainer.propTypes = {
   error: PropTypes.bool.isRequired,
   getPokemons: PropTypes.func.isRequired,
   itemsOnPage: PropTypes.number.isRequired,
+  // match: PropTypes.instanceOf(Object).isRequired,
+  location: PropTypes.instanceOf(Object).isRequired,
+  setPage: PropTypes.func.isRequired,
+  updateSearchValue: PropTypes.func.isRequired,
 };

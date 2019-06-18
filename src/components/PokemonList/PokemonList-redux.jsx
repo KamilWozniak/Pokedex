@@ -6,6 +6,8 @@ import {
   getPokemons,
   toggleModal,
   getPokemonToModal,
+  setPage,
+  updateSearchValue,
 } from '../../redux/actions/actions';
 
 function PokemonListRedux(props) {
@@ -17,7 +19,12 @@ function PokemonListRedux(props) {
     itemsOnPage,
     getPokemons: fetchPokemons,
     error,
+    // match,
+    location,
+    setPage: setCurrPage,
+    updateSearchValue: setSearchValue,
   } = props;
+
   return (
     <React.Fragment>
       <PokemonList
@@ -28,6 +35,10 @@ function PokemonListRedux(props) {
         getPokemons={fetchPokemons}
         itemsOnPage={itemsOnPage}
         error={error}
+        // match={match}
+        setPage={setCurrPage}
+        location={location}
+        updateSearchValue={setSearchValue}
       />
     </React.Fragment>
   );
@@ -42,7 +53,7 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getPokemons, toggleModal, getPokemonToModal },
+  { getPokemons, toggleModal, getPokemonToModal, setPage, updateSearchValue },
 )(PokemonListRedux);
 
 PokemonListRedux.propTypes = {
@@ -53,4 +64,8 @@ PokemonListRedux.propTypes = {
   getPokemonToModal: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.bool.isRequired,
+  // match: PropTypes.instanceOf(Object).isRequired,
+  location: PropTypes.instanceOf(Object).isRequired,
+  setPage: PropTypes.func.isRequired,
+  updateSearchValue: PropTypes.func.isRequired,
 };
