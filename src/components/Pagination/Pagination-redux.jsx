@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Pagination from './Pagination-container';
-import { onPageChange, updateSearchValue } from '../../redux/actions/actions';
+import { onPageChange, updateSearchValue, getPokemons } from '../../redux/actions/actions';
 
 function PaginationRedux(props) {
   const {
@@ -13,6 +13,7 @@ function PaginationRedux(props) {
     currentPage,
     loading,
     updateSearchValue: updateSearch,
+    getPokemons: fetchPokemons,
   } = props;
   return (
     <React.Fragment>
@@ -24,6 +25,7 @@ function PaginationRedux(props) {
         currentPage={currentPage}
         loading={loading}
         updateSearchValue={updateSearch}
+        getPokemons={fetchPokemons}
       />
     </React.Fragment>
   );
@@ -39,7 +41,7 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { onPageChange, updateSearchValue },
+  { onPageChange, updateSearchValue, getPokemons },
 )(PaginationRedux);
 
 PaginationRedux.propTypes = {
@@ -50,4 +52,5 @@ PaginationRedux.propTypes = {
   currentPage: PropTypes.number.isRequired,
   loading: PropTypes.bool.isRequired,
   updateSearchValue: PropTypes.func.isRequired,
+  getPokemons: PropTypes.func.isRequired,
 };
