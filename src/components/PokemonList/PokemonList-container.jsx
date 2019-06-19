@@ -11,9 +11,11 @@ export default class PokemonListContainer extends Component {
 
   componentDidMount() {
     const {
-      getPokemons, itemsOnPage, setPage, location, updateSearchValue,
+      getPokemons, itemsOnPage, setPage, location, updateSearchValue, changeItemsNumber,
     } = this.props;
 
+    if (!localStorage.getItem('itemsOnPage')) localStorage.setItem('itemsOnPage', '12');
+    changeItemsNumber(Number(localStorage.getItem('itemsOnPage')));
     const searchQueryValues = queryString.parse(location.search);
 
     this.setCurrentPage(searchQueryValues.page, setPage);
@@ -22,7 +24,7 @@ export default class PokemonListContainer extends Component {
 
     getPokemons(`?q=${searchQueryValues.search ? searchQueryValues.search : ''}
 &_page=${searchQueryValues.page ? searchQueryValues.page : 1}
-&_limit=${itemsOnPage}`);
+&_limit=${localStorage.getItem('itemsOnPage') ? localStorage.getItem('itemsOnPage') : itemsOnPage}`);
   }
 
   setCurrentPage = (page, setPage) => {
@@ -43,6 +45,7 @@ export default class PokemonListContainer extends Component {
       location,
       setPage,
     } = this.props;
+    console.log('localStorage.getItem("itemsOnPage"): ', localStorage.getItem("itemsOnPage"));
 
     const searchQueryValues = queryString.parse(location.search);
     this.setCurrentPage(searchQueryValues.page, setPage);
@@ -86,4 +89,5 @@ PokemonListContainer.propTypes = {
   location: PropTypes.instanceOf(Object).isRequired,
   setPage: PropTypes.func.isRequired,
   updateSearchValue: PropTypes.func.isRequired,
+  changeItemsNumber: PropTypes.func.isRequired,
 };

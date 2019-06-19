@@ -30,6 +30,7 @@ export const onSearchSubmit = value => (dispatch) => {
 };
 
 export const changeItemsNumber = number => (dispatch) => {
+  localStorage.setItem('itemsOnPage', Number(number))
   dispatch({ type: actionType.SET_ITEMS_PER_PAGE, payload: Number(number) });
 };
 
