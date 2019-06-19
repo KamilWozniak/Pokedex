@@ -8,6 +8,7 @@ import NoResults from './Components/NoResults';
 import ErrorPage from './Components/ErrorPage';
 
 export default class PokemonListContainer extends Component {
+
   componentDidMount() {
     const {
       getPokemons, itemsOnPage, setPage, location, updateSearchValue,
@@ -15,11 +16,7 @@ export default class PokemonListContainer extends Component {
 
     const searchQueryValues = queryString.parse(location.search);
 
-    if (!searchQueryValues.page) {
-      setPage(1);
-    } else {
-      setPage(Number(searchQueryValues.page));
-    }
+    this.setCurrentPage(searchQueryValues.page, setPage);
 
     if (searchQueryValues.search) updateSearchValue(searchQueryValues.search);
 
@@ -28,6 +25,14 @@ export default class PokemonListContainer extends Component {
 &_limit=${itemsOnPage}`);
   }
 
+  setCurrentPage = (page, setPage) => {
+    if (!page) {
+      setPage(1);
+    } else {
+      setPage(Number(page));
+    }
+  };
+
   render() {
     const {
       pokemons,
@@ -35,7 +40,13 @@ export default class PokemonListContainer extends Component {
       getPokemonToModal,
       loading,
       error,
+      location,
+      setPage,
     } = this.props;
+
+    const searchQueryValues = queryString.parse(location.search);
+    this.setCurrentPage(searchQueryValues.page, setPage);
+    // TODO: Important note: setCurrentPage sets page on pagination based on URL.
 
     const handleClick = (pokemonData) => {
       toggleModal(true);
@@ -72,7 +83,6 @@ PokemonListContainer.propTypes = {
   error: PropTypes.bool.isRequired,
   getPokemons: PropTypes.func.isRequired,
   itemsOnPage: PropTypes.number.isRequired,
-  // match: PropTypes.instanceOf(Object).isRequired,
   location: PropTypes.instanceOf(Object).isRequired,
   setPage: PropTypes.func.isRequired,
   updateSearchValue: PropTypes.func.isRequired,

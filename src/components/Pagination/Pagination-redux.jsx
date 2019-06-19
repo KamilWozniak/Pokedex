@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Pagination from './Pagination-container';
-import { onPageChange } from '../../redux/actions/actions';
+import { onPageChange, updateSearchValue } from '../../redux/actions/actions';
 
 function PaginationRedux(props) {
   const {
@@ -12,6 +12,7 @@ function PaginationRedux(props) {
     lastSearch,
     currentPage,
     loading,
+    updateSearchValue: updateSearch,
   } = props;
   return (
     <React.Fragment>
@@ -22,6 +23,7 @@ function PaginationRedux(props) {
         lastSearch={lastSearch}
         currentPage={currentPage}
         loading={loading}
+        updateSearchValue={updateSearch}
       />
     </React.Fragment>
   );
@@ -37,7 +39,7 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { onPageChange },
+  { onPageChange, updateSearchValue },
 )(PaginationRedux);
 
 PaginationRedux.propTypes = {
@@ -47,4 +49,5 @@ PaginationRedux.propTypes = {
   lastSearch: PropTypes.string.isRequired,
   currentPage: PropTypes.number.isRequired,
   loading: PropTypes.bool.isRequired,
+  updateSearchValue: PropTypes.func.isRequired,
 };
