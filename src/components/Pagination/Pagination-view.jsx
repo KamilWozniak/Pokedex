@@ -22,23 +22,14 @@ export default function PaginationView(props) {
     currentPage,
     loading,
     location,
-    updateSearchValue,
-    getPokemons,
   } = props;
 
   const searchQueryValues = queryString.parse(location.search);
+
   if (loading) {
     return null;
   }
-  window.onpopstate = () => { //TODO: consider to move this function to another component
-    getPokemons(`?q=${searchQueryValues.search ? searchQueryValues.search : ''}
-&_page=${searchQueryValues.page ? searchQueryValues.page : 1}
-&_limit=${itemsOnPage}`);
 
-    if (!searchQueryValues.search) {
-      updateSearchValue('');
-    }
-  };
 
   if (numberOfPages > 1) {
     return (
@@ -127,6 +118,4 @@ PaginationView.propTypes = {
   currentPage: PropTypes.number.isRequired,
   loading: PropTypes.bool.isRequired,
   location: PropTypes.instanceOf(Object).isRequired,
-  updateSearchValue: PropTypes.func.isRequired,
-  getPokemons: PropTypes.func.isRequired,
 };

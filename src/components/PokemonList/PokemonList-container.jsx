@@ -44,11 +44,23 @@ export default class PokemonListContainer extends Component {
       error,
       location,
       setPage,
+      getPokemons,
+      itemsOnPage,
+      updateSearchValue,
     } = this.props;
 
     const searchQueryValues = queryString.parse(location.search);
     this.setCurrentPage(searchQueryValues.page, setPage);
-    // TODO: Important note: setCurrentPage sets page on pagination based on URL.
+
+    window.onpopstate = () => {
+      getPokemons(`?q=${searchQueryValues.search ? searchQueryValues.search : ''}
+&_page=${searchQueryValues.page ? searchQueryValues.page : 1}
+&_limit=${itemsOnPage}`);
+
+      if (!searchQueryValues.search) {
+        updateSearchValue('');
+      }
+    };
 
     const handleClick = (pokemonData) => {
       toggleModal(true);
