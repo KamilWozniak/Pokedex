@@ -21,6 +21,7 @@ function SelectRedux(props) {
     changeItemsNumberAction(e.target.value);
     if (lastSearch === '') {
       fetchPokemons(`/?_page=1&_limit=${e.target.value}`);
+      history.push(`${location.pathname}?page=1`);
     } else {
       fetchPokemons(`/?q=${lastSearch}&_page=1&_limit=${e.target.value}`);
       history.push(`${location.pathname}?search=${searchQueryValues.search}&page=1`);
