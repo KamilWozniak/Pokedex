@@ -10,6 +10,7 @@ import Pagination from '../Pagination';
 import Modal from '../Modal';
 import Footer from '../Footer';
 import { POKEMON_LIST_URL } from '../../URLs';
+import CookiePrompt from '../CookiePrompt';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Pagination />
         </Container>
       </div>
+      <CookiePrompt />
       <Footer />
       <Modal />
     </Router>
