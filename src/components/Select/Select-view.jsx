@@ -26,15 +26,16 @@ export default function Select(props) {
               id="select"
               className="select-max-width cursor-pointer"
               onChange={handleChange}
+              defaultValue={Number(localStorage.getItem('itemsOnPage'))}
             >
-              <option selected={Number(localStorage.getItem('itemsOnPage')) === 12} value="12">12</option>
-              <option selected={Number(localStorage.getItem('itemsOnPage')) === 24} value="24">24</option>
-              <option selected={Number(localStorage.getItem('itemsOnPage')) === 36} value="36">36</option>
-              <option selected={Number(localStorage.getItem('itemsOnPage')) === 48} value="48">48</option>
-              <option selected={Number(localStorage.getItem('itemsOnPage')) === 60} value="60">60</option>
-              <option selected={Number(localStorage.getItem('itemsOnPage')) === 72} value="72">72</option>
-              <option selected={Number(localStorage.getItem('itemsOnPage')) === 84} value="84">84</option>
-              <option selected={Number(localStorage.getItem('itemsOnPage')) === 96} value="96">96</option>
+              <option value="12">12</option>
+              <option value="24">24</option>
+              <option value="36">36</option>
+              <option value="48">48</option>
+              <option value="60">60</option>
+              <option value="72">72</option>
+              <option value="84">84</option>
+              <option value="96">96</option>
             </CustomInput>
           </FormGroup>
         </div>

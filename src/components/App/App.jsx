@@ -12,6 +12,7 @@ import Footer from '../Footer';
 import { POKEMON_LIST_URL } from '../../URLs';
 
 function App() {
+  // TODO: check "changing the pokemons per page number when no search query present" bug
   return (
     <Router>
       <div className="body-min-height">
@@ -30,4 +31,5 @@ function App() {
     </Router>
   );
 }
+
 export default App;

@@ -45,7 +45,6 @@ export default class PokemonListContainer extends Component {
       location,
       setPage,
     } = this.props;
-    console.log('localStorage.getItem("itemsOnPage"): ', localStorage.getItem("itemsOnPage"));
 
     const searchQueryValues = queryString.parse(location.search);
     this.setCurrentPage(searchQueryValues.page, setPage);
