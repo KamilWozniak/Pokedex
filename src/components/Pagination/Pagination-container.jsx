@@ -20,6 +20,8 @@ function PaginationContainer(props) {
     currentPage,
     loading,
     location,
+    updateSearchValue,
+    getPokemons,
   } = props;
   const numberOfPages = Math.ceil(total / itemsOnPage);
 
@@ -90,6 +92,8 @@ function PaginationContainer(props) {
         currentPage={currentPage}
         loading={loading}
         location={location}
+        updateSearchValue={updateSearchValue}
+        getPokemons={getPokemons}
       />
     </React.Fragment>
   );
@@ -105,4 +109,6 @@ PaginationContainer.propTypes = {
   currentPage: PropTypes.number.isRequired,
   loading: PropTypes.bool.isRequired,
   location: PropTypes.instanceOf(Object).isRequired,
+  updateSearchValue: PropTypes.func.isRequired,
+  getPokemons: PropTypes.func.isRequired,
 };

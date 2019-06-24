@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import {
-  Row, Col, Card, CardImg, CardBody, CardTitle, Badge,
+  Row,
+  Col,
+  Card,
+  CardImg,
+  CardBody,
+  CardTitle,
+  Badge,
 } from 'reactstrap';
 
 export default function PokemonCard(props) {

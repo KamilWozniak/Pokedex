@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import queryString from 'query-string';
 import Select from './Select-view';
 import { changeItemsNumber, getPokemons } from '../../redux/actions/actions';
-import queryString from 'query-string';
 
 function SelectRedux(props) {
   const {
@@ -21,6 +21,7 @@ function SelectRedux(props) {
     changeItemsNumberAction(e.target.value);
     if (lastSearch === '') {
       fetchPokemons(`/?_page=1&_limit=${e.target.value}`);
+      history.push(`${location.pathname}?page=1`);
     } else {
       fetchPokemons(`/?q=${lastSearch}&_page=1&_limit=${e.target.value}`);
       history.push(`${location.pathname}?search=${searchQueryValues.search}&page=1`);

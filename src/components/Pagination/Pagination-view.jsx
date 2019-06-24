@@ -23,11 +23,15 @@ export default function PaginationView(props) {
     loading,
     location,
   } = props;
+
+  const searchQueryValues = queryString.parse(location.search);
+
   if (loading) {
     return null;
   }
+
+
   if (numberOfPages > 1) {
-    const searchQueryValues = queryString.parse(location.search);
     return (
       <React.Fragment>
         <Row className="my-5">

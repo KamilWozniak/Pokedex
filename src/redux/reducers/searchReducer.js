@@ -16,7 +16,6 @@ const searchReducer = (state = initialState, action) => {
     case SEARCH: {
       return {
         ...state,
-        searchValue: '',
         lastSearched: action.payload,
       };
     }
