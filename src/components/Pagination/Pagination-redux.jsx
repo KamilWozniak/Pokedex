@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Pagination from './Pagination-container';
-import { onPageChange, updateSearchValue, getPokemons } from '../../redux/actions/actions';
+import {
+  onPageChange,
+  updateSearchValue,
+  getPokemons,
+} from '../../redux/actions/actions';
 
 function PaginationRedux(props) {
   const {
@@ -41,7 +45,11 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { onPageChange, updateSearchValue, getPokemons },
+  {
+    onPageChange,
+    updateSearchValue,
+    getPokemons,
+  },
 )(PaginationRedux);
 
 PaginationRedux.propTypes = {

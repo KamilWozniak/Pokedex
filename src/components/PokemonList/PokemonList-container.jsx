@@ -11,7 +11,12 @@ export default class PokemonListContainer extends Component {
 
   componentDidMount() {
     const {
-      getPokemons, itemsOnPage, setPage, location, updateSearchValue, changeItemsNumber,
+      getPokemons,
+      itemsOnPage,
+      setPage,
+      location,
+      updateSearchValue,
+      changeItemsNumber,
     } = this.props;
 
     if (!localStorage.getItem('itemsOnPage')) localStorage.setItem('itemsOnPage', '12');

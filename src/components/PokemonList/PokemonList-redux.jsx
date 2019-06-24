@@ -54,7 +54,14 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getPokemons, toggleModal, getPokemonToModal, setPage, updateSearchValue, changeItemsNumber },
+  {
+    getPokemons,
+    toggleModal,
+    getPokemonToModal,
+    setPage,
+    updateSearchValue,
+    changeItemsNumber,
+  },
 )(PokemonListRedux);
 
 PokemonListRedux.propTypes = {
