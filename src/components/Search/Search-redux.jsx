@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+// import { debounce } from 'lodash';
 import Search from './Search-view';
 import {
   updateSearch,
@@ -38,9 +39,24 @@ function SearchRedux(props) {
     }
   };
 
+  const handleLiveSearch = (e) => {
+    fetchPokemons(`?q=${e.target.value}&_page=1&_limit=${itemsOnPage}`);
+    handleSearchSubmit(e.target.value);
+    if (e.target.value) {
+      history.push(`?search=${e.target.value}`);
+    } else {
+      history.push(location.pathname);
+    }
+  };
+
   return (
     <React.Fragment>
-      <Search searchValue={searchValue} handleChange={handleChange} handleSubmit={handleSubmit} />
+      <Search
+        searchValue={searchValue}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        handleLiveSearch={handleLiveSearch}
+      />
     </React.Fragment>
   );
 }
