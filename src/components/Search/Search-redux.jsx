@@ -40,6 +40,7 @@ function SearchRedux(props) {
   };
 
   const handleLiveSearch = (e) => {
+    updateSearchAction(e.target.value);
     fetchPokemons(`?q=${e.target.value}&_page=1&_limit=${itemsOnPage}`);
     handleSearchSubmit(e.target.value);
     if (e.target.value) {

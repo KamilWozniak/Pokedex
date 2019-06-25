@@ -60,9 +60,10 @@ export default function Search(props) {
             <Form onSubmit={e => e.preventDefault()}>
               <DebounceInput
                 className="w-50"
-                minLength={2}
+                minLength={1}
                 debounceTimeout={400}
                 type="text"
+                value={searchValue}
                 placeholder="Type name of Pokemon"
                 onChange={handleLiveSearch}
               />
