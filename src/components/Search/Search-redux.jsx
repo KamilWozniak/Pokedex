@@ -20,19 +20,12 @@ function SearchRedux(props) {
     location,
   } = props;
 
-  const handleChange = (e) => {
+  const handleLiveSearch = (e) => {
     updateSearchAction(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetchPokemons(`?q=${searchValue}&_page=1&_limit=${itemsOnPage}`);
-    handleSearchSubmit(searchValue);
-    if (window.scrollY < 50) {
-      window.scrollTo({ top: 200, left: 0, behavior: 'smooth' });
-    }
-    if (searchValue) {
-      history.push(`?search=${searchValue}`);
+    fetchPokemons(`?q=${e.target.value}&_page=1&_limit=${itemsOnPage}`);
+    handleSearchSubmit(e.target.value);
+    if (e.target.value) {
+      history.push(`?search=${e.target.value}`);
     } else {
       history.push(location.pathname);
     }
@@ -40,7 +33,10 @@ function SearchRedux(props) {
 
   return (
     <React.Fragment>
-      <Search searchValue={searchValue} handleChange={handleChange} handleSubmit={handleSubmit} />
+      <Search
+        searchValue={searchValue}
+        handleLiveSearch={handleLiveSearch}
+      />
     </React.Fragment>
   );
 }
