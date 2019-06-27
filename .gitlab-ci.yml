@@ -1,0 +1,6 @@
+cache:
+  paths:
+    - node_modules/
+
+check-code:
+  script: "npm run checkCode"
