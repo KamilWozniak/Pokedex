@@ -1,3 +1,7 @@
+stages:
+  - code-review
+  - build
+
 cache:
   paths:
     - node_modules/
@@ -6,5 +10,19 @@ before_script:
   - "npm install"
 
 check-code:
+  stage: code-review
   image: node:12.3.1
+  only:
+    - /^develop\/.*$/
+  tags:
+    - linux
   script: "npm run checkCode"
+
+build-job:
+  script: "npm build"
+  stage: build
+  image: node:12.3.1
+  only:
+    - /^develop\/.*$/
+  tags:
+    - linux
