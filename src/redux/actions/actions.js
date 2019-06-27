@@ -30,7 +30,7 @@ export const onSearchSubmit = value => (dispatch) => {
 };
 
 export const changeItemsNumber = number => (dispatch) => {
-  localStorage.setItem('itemsOnPage', Number(number))
+  localStorage.setItem('itemsOnPage', Number(number));
   dispatch({ type: actionType.SET_ITEMS_PER_PAGE, payload: Number(number) });
 };
 
@@ -78,11 +78,13 @@ export const onPageChange = (pageNumber = 1, itemsPerPage = 12, query = '') => (
     });
 };
 
-export const onPrevChange = val => (dispatch) => { // not used since number of properties in modal decreased
+export const onPrevChange = val => (dispatch) => {
+  // not used since number of properties in modal decreased
   dispatch({ type: actionType.CHANGE_PREV, payload: val });
 };
 
-export const onNextChange = val => (dispatch) => { // not used since number of properties in modal decreased
+export const onNextChange = val => (dispatch) => {
+  // not used since number of properties in modal decreased
   dispatch({ type: actionType.CHANGE_NEXT, payload: val });
 };
 
