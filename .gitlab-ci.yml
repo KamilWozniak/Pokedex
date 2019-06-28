@@ -6,23 +6,24 @@ cache:
   paths:
     - node_modules/
 
-before_script:
+.node-environment: &node_environment
+  before_script:
   - "npm install"
-
-check-code:
-  stage: code-review
   image: node:12.3.1
-  only:
-    - develop
   tags:
     - linux
+
+
+check-code:
+  <<: *node_environment
+  stage: code-review
+  only:
+    - develop
   script: "npm run checkCode"
 
 build-job:
+  <<: *node_environment
   script: "npm build"
   stage: build
-  image: node:12.3.1
   only:
     - develop
-  tags:
-    - linux
