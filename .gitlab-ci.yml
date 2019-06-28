@@ -18,7 +18,7 @@ check-code:
   <<: *node_environment
   stage: code-review
   only:
-    - develop
+    - /^develop.*$/
   script: "npm run checkCode"
 
 build-job:
@@ -26,4 +26,4 @@ build-job:
   script: "npm build"
   stage: build
   only:
-    - develop
+    - /^develop.*$/
